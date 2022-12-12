@@ -1,0 +1,12 @@
+query {
+  pointsOfInterest {
+    id
+    name
+    visible
+    dataProvider{
+      name
+    }
+    updatedAt
+    createdAt
+  }
+}
