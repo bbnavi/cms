@@ -4,6 +4,10 @@ export default defineNuxtConfig({
     '~/assets/css/main.css'
   ],
 
+  modules: [
+    '@pinia/nuxt'
+  ],
+
   postcss: {
     plugins: {
       tailwindcss: {},
