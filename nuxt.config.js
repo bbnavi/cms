@@ -2,9 +2,10 @@
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
-      graphQlAuthEndpoint: process.env.NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT,
-      graphQlClientId: process.env.NUXT_PUBLIC_GRAPHQL_CLIENT_ID,
-      graphQlClientSecret: process.env.NUXT_PUBLIC_GRAPHQL_CLIENT_SECRET
+      authEndpoint: process.env.NUXT_PUBLIC_AUTH_ENDPOINT,
+      userEndpoint: process.env.NUXT_PUBLIC_USER_ENDPOINT,
+      authOrigin: process.env.NUXT_PUBLIC_AUTH_ORIGIN,
+      graphQlAuthEndpoint: process.env.NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT
     }
   },
 
@@ -14,10 +15,15 @@ export default defineNuxtConfig({
   ],
 
   modules: [
+    '@sidebase/nuxt-auth',
     '@nuxtjs/apollo',
     '@pinia/nuxt',
     'nuxt-icons'
   ],
+
+  auth: {
+    origin: process.env.NUXT_PUBLIC_AUTH_ORIGIN
+  },
 
   apollo: {
     clients: {

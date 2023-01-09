@@ -1,5 +1,6 @@
 export default defineNuxtPlugin((nuxtApp) => {
   const config = useRuntimeConfig()
+  const { data } = useSession()
 
   nuxtApp.hook('apollo:auth', async ({ client, token }) => {
     const response = await fetch(config.public.graphQlAuthEndpoint, {
@@ -9,8 +10,8 @@ export default defineNuxtPlugin((nuxtApp) => {
       },
       body: JSON.stringify({
         grant_type: 'client_credentials',
-        client_id: config.public.graphQlClientId,
-        client_secret: config.public.graphQlClientSecret
+        client_id: data.value.user.image.oauth_client_id,
+        client_secret: data.value.user.image.oauth_client_secret
       })
     })
 

@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@nuxtjs/apollo": "^5.0.0-alpha.4",
+    "@sidebase/nuxt-auth": "^0.3.0",
     "autoprefixer": "^10.4.13",
     "nuxt": "3.0.0",
     "postcss": "^8.4.20",

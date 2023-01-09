@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-4xl mb-8">Points Of Interest</h1>
+  <h1 class="mb-8 text-4xl">Points Of Interest</h1>
 
   <ul>
     <li
