@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     '@sidebase/nuxt-auth',
     '@nuxtjs/apollo',
     '@pinia/nuxt',
+    '@nuxtjs/i18n',
     'nuxt-icons'
   ],
 
@@ -31,6 +32,18 @@ export default defineNuxtConfig({
         httpEndpoint: process.env.NUXT_PUBLIC_GRAPHQL_ENDPOINT
       }
     }
+  },
+
+  i18n: {
+    locales: [
+      {
+        code: 'de',
+        file: 'de-DE.json'
+      }
+    ],
+    lazy: true,
+    langDir: 'lang',
+    defaultLocale: 'de'
   },
 
   postcss: {
