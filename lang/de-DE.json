@@ -1,9 +1,23 @@
 {
   "common": {
+    "msg": {
+      "noEntries": "Keine Einträge vorhanden"
+    },
     "buttons": {
       "newEntry": "Neuer Eintrag",
       "cancel": "Abbrechen",
       "save": "Speichern"
+    },
+    "dataTable": {
+      "header": {
+        "actions": "Aktionen",
+        "createdAt": "Erstellt am",
+        "dataProvider": "Datenanbieter",
+        "id": "ID",
+        "name": "Name",
+        "updatedAt": "Aktualisiert am",
+        "visible": "Sichtbarkeit"
+      }
     }
   },
 

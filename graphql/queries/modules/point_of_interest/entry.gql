@@ -1,0 +1,120 @@
+query getEntry ($id: ID!) {
+  pointOfInterest (id: $id) {
+    visible
+    categories {
+      id
+      name
+    }
+    id
+    name
+    description
+    mediaContents {
+      id
+      captionText
+      contentType
+      copyright
+      height
+      width
+      sourceUrl {
+        url
+        description
+      }
+    }
+    addresses {
+      addition
+      street
+      zip
+      city
+      kind
+      geoLocation {
+        latitude
+        longitude
+      }
+    }
+    openingHours {
+      weekday
+      timeFrom
+      timeTo
+      open
+      dateFrom
+      dateTo
+      description
+    }
+    contact {
+      id
+      email
+      fax
+      lastName
+      firstName
+      phone
+      webUrls {
+        url
+        description
+      }
+    }
+    priceInformations {
+      id
+      name
+      amount
+      groupPrice
+      ageFrom
+      ageTo
+      minAdultCount
+      maxAdultCount
+      minChildrenCount
+      maxChildrenCount
+      description
+      category
+    }
+    webUrls {
+      id
+      url
+      description
+    }
+    operatingCompany {
+      name
+      contact {
+        firstName
+        lastName
+        phone
+        fax
+        email
+        webUrls {
+          url
+          description
+        }
+      }
+      address {
+        addition
+        street
+        zip
+        city
+        kind
+        geoLocation {
+          latitude
+          longitude
+        }
+      }
+    }
+    dataProvider {
+      name
+    }
+    lunches {
+      id
+      text
+      dates {
+        dateStart
+        dateEnd
+      }
+      lunchOffers {
+        id
+        name
+        price
+      }
+      pointOfInterest {
+        id
+      }
+      pointOfInterestAttributes
+    }
+  }
+}

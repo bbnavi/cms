@@ -1,0 +1,12 @@
+query {
+  newsItems {
+    id
+    name: title
+    visible
+    dataProvider {
+      name
+    }
+    updatedAt
+    createdAt
+  }
+}

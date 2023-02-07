@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.6",
-    "nuxt-icons": "^3.0.0"
+    "nuxt-icons": "^3.0.0",
+    "vue3-easy-data-table": "^1.5.31"
   }
 }
