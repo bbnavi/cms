@@ -1,0 +1,17 @@
+<template>
+  <h1 class="mb-8 text-4xl">
+    {{ $t(`modules.${params.module}.title`) }}
+  </h1>
+
+  <div>
+    EDIT ENTRY: {{ params.id }}
+  </div>
+</template>
+
+<script setup>
+const { params } = useRoute()
+
+definePageMeta({
+  name: 'module-edit',
+})
+</script>

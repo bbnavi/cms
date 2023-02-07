@@ -25,7 +25,10 @@ export const useUserStore = defineStore({
     },
 
     activeModules () {
-      return Object.keys(this.roles).filter((key) => this.roles[key] === true)
+      return this.roles && Object.keys(this.roles)
+        .filter((key) => this.roles[key] === true)
+        .map(role => role
+        .slice(5))
     }
   }
 })

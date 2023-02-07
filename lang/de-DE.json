@@ -1,1 +1,23 @@
-{}
+{
+  "common": {
+    "buttons": {
+      "newEntry": "Neuer Eintrag",
+      "cancel": "Abbrechen",
+      "save": "Speichern"
+    }
+  },
+
+  "dashboard": {
+    "title": "Dashboard"
+  },
+
+  "modules": {
+    "news_item": {
+      "title": "News"
+    },
+
+    "point_of_interest": {
+      "title": "Points of Interest"
+    }
+  }
+}

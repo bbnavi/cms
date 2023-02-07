@@ -2,7 +2,9 @@
   <div class="py-4 mb-8 bg-gray-300">
     <div class="container flex items-center justify-between mx-auto">
       <div class="flex items-center gap-4">
-        <nuxt-link to="/">Home</nuxt-link>
+        <nuxt-link to="/">
+          {{ $t('dashboard.title') }}
+        </nuxt-link>
       </div>
 
       <div class="flex items-center justify-between gap-4">
