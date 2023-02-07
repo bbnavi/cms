@@ -20,7 +20,9 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.6",
+    "@vue-leaflet/vue-leaflet": "^0.8.2",
     "@vueup/vue-quill": "^1.1.0",
+    "leaflet": "^1.9.3",
     "nuxt-icons": "^3.0.0",
     "vue3-easy-data-table": "^1.5.31"
   }

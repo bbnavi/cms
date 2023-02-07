@@ -30,6 +30,29 @@
       label="Aktiv"
     />
 
+    <form-group>
+      <div class="grid grid-cols-12 gap-8">
+        <div class="col-span-6">
+          <form-input-text
+            v-model="form.latitude"
+            label="Latitude"
+          />
+
+          <form-input-text
+            v-model="form.longitude"
+            label="Longitude"
+          />
+        </div>
+        <div class="col-span-6">
+          <form-input-location
+            v-model:latitute="form.latitude"
+            v-model:longitude="form.longitude"
+            class="w-full aspect-video"
+          />
+        </div>
+      </div>
+    </form-group>
+
     <pre>{{ form }}</pre>
   </div>
 </template>
@@ -40,7 +63,9 @@ const form = reactive({
   description: '',
   body: '<p>Hallo Welt!</p>',
   category: 'Germany',
-  active: null
+  active: null,
+  latitude: 51.165691,
+  longitude: 10.451526
 })
 
 const selectOptions = [
