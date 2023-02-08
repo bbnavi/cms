@@ -6,12 +6,11 @@
       </span>
 
       <input
-        :value="modelValue"
+        v-model="inputValue"
         :type="type"
         :readonly="readonly"
         :required="required"
         class="px-4 py-2 text-base border border-black rounded"
-        @input="handleInput"
       />
     </form-label>
   </form-group>
@@ -43,7 +42,8 @@ const props = defineProps({
   }
 })
 
-const handleInput = (event) => {
-  emit('update:modelValue', event.target.value)
-}
+const inputValue = computed({
+  get() { return props.modelValue },
+  set(value) { emit('update:modelValue', value) }
+})
 </script>

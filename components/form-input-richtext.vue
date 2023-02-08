@@ -8,7 +8,7 @@
       <client-only>
         <quill-editor
           theme="snow"
-          v-model:content="content"
+          v-model:content="inputValue"
           content-type="html"
         />
       </client-only>
@@ -38,7 +38,7 @@ const props = defineProps({
   }
 })
 
-const content = computed({
+const inputValue = computed({
   get() { return props.modelValue },
   set(value) { emit('update:modelValue', value) }
 })
