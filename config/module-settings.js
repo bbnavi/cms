@@ -22,6 +22,24 @@ export const config = {
         listTitle: 'modules.point_of_interest.form.headlines.categories',
         listItemComponent: 'field-generic-listitem-category',
         listMaxItems: 3
+      },
+      addresses: {
+        component: 'field-generic-list',
+        defaultValue: [{
+          "addition": "",
+          "street": "",
+          "zip": "",
+          "city": "",
+          "kind": "default",
+          "geoLocation": {
+            "latitude": 0,
+            "longitude": 0
+          }
+        }],
+        listTitle: 'modules.point_of_interest.form.headlines.address',
+        listItemComponent: 'field-generic-listitem-address',
+        listMinItems: 1,
+        listMaxItems: 1
       }
     }
   },

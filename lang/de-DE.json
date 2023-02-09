@@ -50,13 +50,20 @@
       "title": "Points of Interest",
       "form": {
         "headlines": {
-          "categories": "Kategorien"
+          "categories": "Kategorien",
+          "address": "Adresse"
         },
         "labels": {
           "id": "ID",
           "externalId": "Externe ID",
           "name": "Name",
-          "description": "Beschreibung"
+          "description": "Beschreibung",
+          "addition": "Ortsbezeichnung",
+          "street": "Straße",
+          "zip": "PLZ",
+          "city": "Stadt",
+          "longitude": "Längengrad",
+          "latitude": "Breitengrad"
         }
       }
     }
