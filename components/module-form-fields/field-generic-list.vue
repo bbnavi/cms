@@ -49,7 +49,7 @@ const props = defineProps({
 })
 
 const isRemovable = computed(() => {
-  return props.modelValue.length > props. options.listMinItems
+  return props.modelValue.length > props.options.listMinItems || props.options.listMinItems === undefined
 })
 
 const handleInput = (listIndex, value) => {

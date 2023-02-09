@@ -51,7 +51,8 @@
       "form": {
         "headlines": {
           "categories": "Kategorien",
-          "address": "Adresse"
+          "address": "Adresse",
+          "opening_hours": "Öffnungszeiten"
         },
         "labels": {
           "id": "ID",
@@ -63,7 +64,16 @@
           "zip": "PLZ",
           "city": "Stadt",
           "longitude": "Längengrad",
-          "latitude": "Breitengrad"
+          "latitude": "Breitengrad",
+          "openingHours": {
+            "startDate": "Startdatum",
+            "endDate": "Enddatum",
+            "startTime": "Startzeit",
+            "endTime": "Endzeit",
+            "description": "Beschreibung",
+            "weekday": "Wochentag",
+            "open": "geöffnet?"
+          }
         }
       }
     }

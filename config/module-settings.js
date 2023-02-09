@@ -40,6 +40,12 @@ export const config = {
         listItemComponent: 'field-generic-listitem-address',
         listMinItems: 1,
         listMaxItems: 1
+      },
+      openingHours: {
+        component: 'field-generic-list',
+        defaultValue: [],
+        listTitle: 'modules.point_of_interest.form.headlines.opening_hours',
+        listItemComponent: 'field-generic-listitem-opening-hours'
       }
     }
   },
