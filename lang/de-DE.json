@@ -73,6 +73,17 @@
             "description": "Beschreibung",
             "weekday": "Wochentag",
             "open": "geöffnet?"
+          },
+          "contact": {
+            "firstName": "Vorname",
+            "lastName": "Nachname",
+            "email": "E-Mail",
+            "phone": "Telefon",
+            "fax": "Fax"
+          },
+          "webUrl": {
+            "url": "URL",
+            "description": "Beschreibung"
           }
         }
       }

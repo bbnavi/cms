@@ -46,6 +46,17 @@ export const config = {
         defaultValue: [],
         listTitle: 'modules.point_of_interest.form.headlines.opening_hours',
         listItemComponent: 'field-generic-listitem-opening-hours'
+      },
+      contact: {
+        component: 'field-custom-contact',
+        defaultValue: {
+          "firstName": "",
+          "lastName": "",
+          "email": "",
+          "phone": "",
+          "fax": "",
+          "webUrls": [{}]
+        }
       }
     }
   },
