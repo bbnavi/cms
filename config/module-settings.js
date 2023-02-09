@@ -58,6 +58,12 @@ export const config = {
           "webUrls": [{}]
         }
       },
+      webUrls: {
+        component: 'field-generic-list',
+        defaultValue: [],
+        listTitle: 'modules.point_of_interest.form.headlines.webUrls',
+        listItemComponent: 'field-generic-listitem-web-url'
+      },
       priceInformations: {
         component: 'field-generic-list',
         defaultValue: [],
