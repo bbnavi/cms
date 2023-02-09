@@ -52,7 +52,8 @@
         "headlines": {
           "categories": "Kategorien",
           "address": "Adresse",
-          "opening_hours": "Öffnungszeiten"
+          "opening_hours": "Öffnungszeiten",
+          "contact": "Kontakt"
         },
         "labels": {
           "id": "ID",

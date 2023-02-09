@@ -1,5 +1,9 @@
 <template>
   <div class="form-field field-custom-contact">
+    <h3 class="mb-3 text-2xl">
+      {{ $t('modules.point_of_interest.form.headlines.contact') }}
+    </h3>
+
     <div class="flex items-start justify-between gap-4">
       <div class="grid flex-1 grid-cols-12 gap-4">
         <div class="col-span-6">
