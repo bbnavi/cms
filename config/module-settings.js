@@ -44,7 +44,7 @@ export const config = {
       openingHours: {
         component: 'field-generic-list',
         defaultValue: [],
-        listTitle: 'modules.point_of_interest.form.headlines.opening_hours',
+        listTitle: 'modules.point_of_interest.form.headlines.openingHours',
         listItemComponent: 'field-generic-listitem-opening-hours'
       },
       contact: {
@@ -57,6 +57,12 @@ export const config = {
           "fax": "",
           "webUrls": [{}]
         }
+      },
+      priceInformations: {
+        component: 'field-generic-list',
+        defaultValue: [],
+        listTitle: 'modules.point_of_interest.form.headlines.priceInformations',
+        listItemComponent: 'field-generic-listitem-price-information',
       }
     }
   },

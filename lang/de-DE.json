@@ -52,8 +52,9 @@
         "headlines": {
           "categories": "Kategorien",
           "address": "Adresse",
-          "opening_hours": "Öffnungszeiten",
-          "contact": "Kontakt"
+          "openingHours": "Öffnungszeiten",
+          "contact": "Kontakt",
+          "priceInformations": "Preisinformationen"
         },
         "labels": {
           "id": "ID",
@@ -85,6 +86,10 @@
           "webUrl": {
             "url": "URL",
             "description": "Beschreibung"
+          },
+          "priceInformations": {
+            "description": "Beschreibung",
+            "amount": "Betrag"
           }
         }
       }
