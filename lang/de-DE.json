@@ -55,7 +55,8 @@
           "openingHours": "Öffnungszeiten",
           "contact": "Kontakt",
           "webUrls": "Links",
-          "priceInformations": "Preisinformationen"
+          "priceInformations": "Preisinformationen",
+          "operatingCompany": "Betreiber"
         },
         "labels": {
           "id": "ID",

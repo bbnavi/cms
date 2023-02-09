@@ -69,6 +69,34 @@ export const config = {
         defaultValue: [],
         listTitle: 'modules.point_of_interest.form.headlines.priceInformations',
         listItemComponent: 'field-generic-listitem-price-information',
+      },
+      operatingCompany: {
+        component: 'field-custom-operating-company',
+        defaultValue: {
+          "name": "",
+          "contact": {
+            "firstName": "",
+            "lastName": "",
+            "email": "",
+            "phone": "",
+            "fax": "",
+            "webUrls": {
+              "url": "",
+              "description": ""
+            }
+          },
+          "address": {
+            "addition": "",
+            "street": "",
+            "zip": "",
+            "city": "",
+            "kind": "default",
+            "geoLocation": {
+              "latitude": 0,
+              "longitude": 0
+            }
+          }
+        }
       }
     }
   },
