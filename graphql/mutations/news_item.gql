@@ -1,0 +1,35 @@
+# createNewsItem
+
+# id: ID
+# forceCreate: Boolean
+# pushNotification: Boolean
+# author: String
+# title: String
+# externalId: String
+# fullVersion: Boolean
+# charactersToBeShown: Int
+# newsType: String
+# publicationDate: String
+# publishedAt: String
+# showPublishDate: Boolean
+# categoryName: String
+# categories: [CategoryInput!]
+# sourceUrl: WebUrlInput
+# address: AddressInput
+# contentBlocks: [ContentBlockInput!]
+# : NewsItem!
+
+mutation (
+  $forceCreate: Boolean,
+  $id: ID,
+  $title: String!
+) {
+  createNewsItem (
+    forceCreate: $forceCreate,
+    id: $id,
+    title: $title
+  ) {
+    id
+    title
+  }
+}

@@ -14,6 +14,16 @@ export default defineNuxtConfig({
     '~/assets/css/main.css'
   ],
 
+  components: {
+    "dirs": [
+      {
+        "path": "~/components/module-form-fields",
+        "global": true
+      },
+      "~/components"
+    ]
+  },
+
   modules: [
     '@sidebase/nuxt-auth',
     '@nuxtjs/apollo',

@@ -3,9 +3,7 @@
     {{ $t(`modules.${params.module}.title`) }}
   </h1>
 
-  <div>
-    EDIT ENTRY: {{ params.id }}
-  </div>
+  <module-form :moduleName="params.module" />
 </template>
 
 <script setup>

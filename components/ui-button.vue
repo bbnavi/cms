@@ -90,8 +90,6 @@ export default {
         event.preventDefault()
         return
       }
-
-      this.$emit('click')
     }
   }
 }

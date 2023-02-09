@@ -1,0 +1,6 @@
+query ($category_id: ID!) {
+  categories(children_of: $category_id) {
+    id
+    name
+  }
+}

@@ -5,8 +5,17 @@
     },
     "buttons": {
       "newEntry": "Neuer Eintrag",
+      "addEntry": "Eintrag hinzufügen",
+      "createEntry": "Eintrag erstellen",
+      "updateEntry": "Eintrag aktualisieren",
+      "deleteEntry": "Eintrag löschen",
+      "remove": "Löschen",
       "cancel": "Abbrechen",
       "save": "Speichern"
+    },
+    "headlines": {
+      "newEntry": "Neuer Eintrag",
+      "editEntry": "Eintrag bearbeiten"
     },
     "dataTable": {
       "header": {
@@ -27,11 +36,29 @@
 
   "modules": {
     "news_item": {
-      "title": "News"
+      "title": "News",
+      "form": {
+        "labels": {
+          "id": "ID",
+          "externalId": "Externe ID",
+          "title": "Titel"
+        }
+      }
     },
 
     "point_of_interest": {
-      "title": "Points of Interest"
+      "title": "Points of Interest",
+      "form": {
+        "headlines": {
+          "categories": "Kategorien"
+        },
+        "labels": {
+          "id": "ID",
+          "externalId": "Externe ID",
+          "name": "Name",
+          "description": "Beschreibung"
+        }
+      }
     }
   }
 }

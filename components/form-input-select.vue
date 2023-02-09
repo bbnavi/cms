@@ -32,7 +32,7 @@ const emit = defineEmits(['update:modelValue'])
 const props = defineProps({
   label: {
     type: String,
-    required: true
+    required: false
   },
   modelValue: {
     type: String,
