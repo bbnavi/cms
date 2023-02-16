@@ -43,3 +43,13 @@ const inputValue = computed({
   set(value) { emit('update:modelValue', value) }
 })
 </script>
+
+<style lang="scss">
+.ql-toolbar {
+  @apply bg-gray-200;
+}
+
+.ql-container {
+  @apply bg-white;
+}
+</style>

@@ -3,7 +3,9 @@
     {{ $t(`modules.${params.module}.title`) }}
   </h1>
 
-  <module-form :moduleName="params.module" />
+  <main-content-box>
+    <module-form :moduleName="params.module" />
+  </main-content-box>
 </template>
 
 <script setup>

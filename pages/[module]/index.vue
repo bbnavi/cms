@@ -20,10 +20,12 @@
     </div>
   </div>
 
-  <module-data-table
-    :module="params.module"
-    :search-value="searchValue"
-  />
+  <main-content-box>
+    <module-data-table
+      :module="params.module"
+      :search-value="searchValue"
+    />
+  </main-content-box>
 </template>
 
 <script setup>
