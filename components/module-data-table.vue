@@ -37,7 +37,7 @@
 <script setup>
 import { getConfig } from '@/config/module-settings'
 import Vue3EasyDataTable from 'vue3-easy-data-table';
-import 'vue3-easy-data-table/dist/style.css';
+//import 'vue3-easy-data-table/dist/style.css';
 
 const { $i18n } = useNuxtApp()
 
@@ -81,3 +81,44 @@ const items = computed(() => {
   })
 })
 </script>
+
+<style lang="scss">
+//@import '../assets/css/modules/vue3-easy-data-table';
+
+.vue3-easy-data-table {
+  table {
+    @apply w-full;
+    @apply border-t border-gray-800;
+    @apply text-sm;
+  }
+
+  // TABLE: Header
+  .vue3-easy-data-table__header {
+    th {
+      @apply px-2 py-4 text-start;
+      @apply border-b border-gray-800;
+    }
+  }
+
+  // TABLE: Content
+  .vue3-easy-data-table__body {
+    td {
+      @apply px-2 py-4 text-start min-h-[40px] leading-[1.35];
+      @apply border-b;
+    }
+  }
+
+  // TABLE: Pagination
+  .vue3-easy-data-table__footer {
+    @apply flex flex-row py-6;
+    @apply text-sm;
+
+    .pagination__items-index {
+      @apply mr-auto;
+
+      order: -1;
+    }
+  }
+}
+
+</style>
