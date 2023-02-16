@@ -1,7 +1,7 @@
 <template>
   <div class="flex-grow p-8 pr-0 overflow-y-auto">
     <ul class="space-y-2 main-menu">
-      <li class="active">
+      <li>
         <nuxt-link to="/">
           <ui-icon icon="dashboard" />
           {{ $t('dashboard.title') }}
@@ -9,35 +9,35 @@
       </li>
 
       <li>
-        <nuxt-link to="/">
+        <nuxt-link to="/a">
           <ui-icon icon="disabled" />
           Baustellen
         </nuxt-link>
       </li>
 
       <li>
-        <nuxt-link to="/">
+        <nuxt-link to="/b">
           <ui-icon icon="coworking" />
           Coworking
         </nuxt-link>
       </li>
 
       <li>
-        <nuxt-link to="/">
+        <nuxt-link to="/c">
           <ui-icon icon="bicycle" />
           Fahrräder
         </nuxt-link>
       </li>
       
       <li>
-        <nuxt-link to="/">
+        <nuxt-link to="/d">
           <ui-icon icon="car-pin-location" />
           Mitfahrpunkte
         </nuxt-link>
       </li>
       
       <li>
-        <nuxt-link to="/">
+        <nuxt-link to="/e">
           <ui-icon icon="places" />
           Orte
         </nuxt-link>
@@ -57,7 +57,7 @@
     @apply text-base font-bold;
   }
 
-  .active {
+  .router-link-active {
     @apply relative;
 
     &::after {
