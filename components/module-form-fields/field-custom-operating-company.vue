@@ -1,6 +1,6 @@
 <template>
   <div class="form-field field-custom-contact">
-    <h3 class="mb-3 text-2xl">
+    <h3>
       {{ $t('modules.point_of_interest.form.headlines.operatingCompany') }}
     </h3>
 

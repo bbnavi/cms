@@ -46,10 +46,10 @@ const inputValue = computed({
 
 <style lang="scss">
 .ql-toolbar {
-  @apply bg-gray-200;
+  @apply bg-gray-50 rounded-t;
 }
 
 .ql-container {
-  @apply bg-white;
+  @apply bg-white rounded-b min-h-[100px];
 }
 </style>

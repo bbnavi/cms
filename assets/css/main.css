@@ -17,3 +17,10 @@ a:hover,
 a:focus {
   @apply text-brand;
 }
+
+/* Form Field */
+/* TODO: Put in component? */
+.form-field h3 {
+  @apply pt-8 mt-10 mb-4 border-t md:mt-20;
+  @apply text-2xl;
+}

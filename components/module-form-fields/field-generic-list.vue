@@ -1,6 +1,6 @@
 <template>
   <div class="form-field field-generic-list">
-    <h3 class="mb-3 text-2xl">
+    <h3>
       {{ $t(`${options.listTitle}`) }}
     </h3>
 
