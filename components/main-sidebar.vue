@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col max-h-screen bg-white w-80">
+  <div class="flex flex-col max-h-screen bg-white shadow w-80">
     <div class="px-8 pt-8">
       <svg class="h-8" viewBox="0 0 236 34" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#a)">
@@ -15,17 +15,19 @@
 
     <main-nav />
 
-    <div class="p-8 bg-gray-100">
+    <div class="p-8 bg-white border-t">
       <nuxt-link
         v-if="status === 'unauthenticated'"
         to="/login"
+        class="flex flex-row items-center gap-4 text-base font-bold"
       >
+        <ui-icon icon="user" />
         Login
       </nuxt-link>
 
       <div
         v-if="status === 'authenticated'"
-        class="flex justify-between"
+        class="flex justify-between text-base font-bold"
       >
         <div>
           {{ data.user.email }}
