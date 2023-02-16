@@ -15,7 +15,7 @@
 
     <main-nav />
 
-    <div class="p-8 bg-white border-t">
+    <div class="max-w-full p-8 overflow-hidden bg-white border-t">
       <nuxt-link
         v-if="status === 'unauthenticated'"
         to="/login"
@@ -27,9 +27,9 @@
 
       <div
         v-if="status === 'authenticated'"
-        class="flex justify-between text-base font-bold"
+        class="flex flex-col items-start space-y-2 text-base font-bold"
       >
-        <div>
+        <div class="max-w-full overflow-hidden whitespace-nowrap text-ellipsis">
           {{ data.user.email }}
         </div>
         <button @click="signOut">

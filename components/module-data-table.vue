@@ -30,6 +30,16 @@
           </button>
         </div>
       </template>
+
+      <template #pagination="{ prevPage, nextPage, isFirstPage, isLastPage }">
+        <button :disabled="isFirstPage" @click="prevPage">
+          <ui-icon icon="arrow-left" />
+        </button>
+
+        <button :disabled="isLastPage" @click="nextPage">
+          <ui-icon icon="arrow-right" />
+        </button>
+      </template>
     </Vue3EasyDataTable>
   </div>
 </template>
