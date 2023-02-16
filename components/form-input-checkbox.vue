@@ -7,7 +7,7 @@
         :required="required"
         :checked="checked"
         type="checkbox"
-        class="w-4 h-4 border-black rounded"
+        class="w-4 h-4 border-gray-200 rounded"
         @change="handleChange"
       />
 

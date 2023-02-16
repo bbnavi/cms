@@ -10,6 +10,7 @@
 <style lang="scss">
 .form-label {
   @apply flex flex-col;
+  @apply text-gray-600;
 
   > span {
     @apply text-sm mb-1;

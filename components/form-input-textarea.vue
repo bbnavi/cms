@@ -9,7 +9,7 @@
         v-model="inputValue"
         :readonly="readonly"
         :required="required"
-        class="px-4 py-2 text-base border border-black rounded"
+        class="px-4 py-2 text-base border border-gray-200 rounded"
       />
     </form-label>
   </form-group>
