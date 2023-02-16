@@ -13,7 +13,7 @@
   @apply text-gray-600;
 
   > span {
-    @apply text-sm mb-1;
+    @apply text-sm mb-[6px];
   }
 }
 </style>
