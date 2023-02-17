@@ -107,6 +107,39 @@ const items = computed(() => {
     th {
       @apply px-2 py-4 text-start;
       @apply border-b border-gray-800;
+
+      .header {
+        @apply flex items-center;
+      }
+
+      &.sortable {
+        cursor: pointer;
+
+        .sortType-icon {
+          @apply h-4 w-4 ml-1;
+          @apply bg-no-repeat bg-center;
+
+          background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggMTBMMTIgMTRMMTYgMTAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTggMTBMMTIgMTRMMTYgMTAiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjIiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==);
+          background-size: 24px auto;
+        }
+
+        &.none {
+          &:hover {
+            .sortType-icon {
+              @apply opacity-100;
+            }
+          }
+          .sortType-icon {
+            @apply opacity-0;
+            @apply transition-colors duration-500 ease-in-out;
+          }
+        }
+        &.desc {
+          .sortType-icon {
+            @apply rotate-180;
+          }
+        }
+      }
     }
   }
 
