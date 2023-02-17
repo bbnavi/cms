@@ -1,8 +1,8 @@
 <template>
-  <div class="container flex min-h-screen">
-    <main-sidebar />
+  <main-sidebar />
 
-    <div class="flex-grow max-h-screen p-8 pb-0 overflow-y-auto">
+  <div class="container">
+    <div class="flex-grow p-8 pb-0">
       <slot />
     </div>
   </div>

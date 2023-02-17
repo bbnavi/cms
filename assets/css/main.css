@@ -6,6 +6,7 @@
 
 body {
   @apply bg-gray-50;
+  @apply xl:pl-80;
 }
 
 /* Anchor Base Styles */
