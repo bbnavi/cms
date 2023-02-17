@@ -97,7 +97,7 @@ export default {
 
 <style lang="scss">
 .ui-button {
-  @apply inline-flex items-center justify-center gap-1.5 relative cursor-pointer flex-shrink-0;
+  @apply inline-flex items-center justify-center gap-1.5 relative cursor-pointer flex-shrink-0 rounded-lg;
   @apply uppercase font-medium whitespace-nowrap;
   @apply transition-colors duration-200 ease-in-out;
 
@@ -114,18 +114,18 @@ export default {
   }
 
   &--primary {
-    @apply bg-black text-white;
+    @apply bg-brand border border-brand text-white;
 
     &:hover:not(.disabled, .loading) {
-      @apply bg-gray-800;
+      @apply bg-white border-brand text-brand;
     }
   }
 
   &--secondary {
-    @apply bg-gray-600 text-white;
+    @apply bg-white border border-brand text-brand;
 
     &:hover:not(.disabled, .loading) {
-      @apply bg-gray-800;
+      @apply bg-brand border-brand text-white;
     }
   }
 

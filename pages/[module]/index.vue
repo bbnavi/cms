@@ -8,7 +8,7 @@
       <input
         v-model="searchValue"
         type="search"
-        class="h-8 px-2 border border-black outline-none"
+        class="h-8 px-2 border rounded outline-none"
       />
 
       <ui-button
