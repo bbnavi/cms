@@ -96,10 +96,41 @@ const items = computed(() => {
 //@import '../assets/css/modules/vue3-easy-data-table';
 
 .vue3-easy-data-table {
+  position: relative;
+  box-sizing: border-box;
+
+
+
   table {
     @apply w-full;
     @apply border-t border-gray-800;
     @apply text-sm;
+  }
+
+  // TABLE: Main
+  .vue3-easy-data-table__main {
+    width: 100%;
+    overflow: auto;
+
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: #fff;
+    }
+
+    &::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+      background-color: #fff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: #c1c1c1;
+    }
+
+    &::-webkit-scrollbar-corner {
+      background-color: #fff;
+    }
   }
 
   // TABLE: Header
@@ -134,6 +165,7 @@ const items = computed(() => {
             @apply transition-colors duration-500 ease-in-out;
           }
         }
+
         &.desc {
           .sortType-icon {
             @apply rotate-180;
@@ -160,6 +192,66 @@ const items = computed(() => {
       @apply mr-auto;
 
       order: -1;
+    }
+  }
+}
+
+.easy-data-table__rows-selector {
+  display: inline-block;
+  min-width: 45px;
+  position: relative;
+  margin: 0px 10px;
+  width: auto;
+
+  .rows-input__wrapper {
+    height: 20px;
+    border-bottom: 1px solid #212121;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 5px;
+    cursor: pointer;
+
+    .triangle {
+      display: inline-block;
+      vertical-align: middle;
+      width: 0px;
+      height: 0px;
+      border-top: solid 6px #212121;
+      border-left: solid 6px transparent;
+      border-right: solid 6px transparent;
+    }
+  }
+  ul.select-items {
+    &.show {
+      display: block;
+    }
+
+    &.inside {
+      bottom: 0px;
+      top: auto;
+    }
+
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    width: 100%;
+    display: none;
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+    list-style-type: none;
+    box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%);
+    z-index: auto;
+
+    li {
+      cursor: pointer;
+      padding: 5px;
+      background-color: #fff;
+
+      &.selected {
+        @apply text-brand;
+      }
     }
   }
 }

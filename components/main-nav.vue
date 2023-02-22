@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-grow p-8 pr-0 overflow-y-auto">
+  <div class="flex-grow py-8 pr-0 overflow-y-auto xl:pl-8">
     <ul class="space-y-2 main-menu">
       <li>
         <nuxt-link to="/">

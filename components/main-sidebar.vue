@@ -14,44 +14,42 @@
         </svg>
       </div>
 
-      <div class="block xl:hidden">
-        <!-- TODO: Menu Toggle! -->
-        <button
-          id="sidebar-toggle"
-          type="button"
-          data-toggle="collapse"
-          aria-controls="main-sidebar-menu"
-          aria-expanded="false"
-          aria-label="Navigation ein und ausschalten"
-        >
-          <ui-icon icon="menu" />
-        </button>
-      </div>
+      <main-sidebar-toggle v-model="menuOpen" class="flex xl:hidden" />
 
-      <div id="main-sidebar-menu" class="main-sidebar-menu">
-        <main-nav />
+      <div 
+        id="main-sidebar-menu" 
+        :class="{ 'main-sidebar-menu': true, 'menu-visible': menuOpen }"
+      >
+        <div class="container">
+          <main-nav />
+        </div>
 
-        <div class="max-w-full p-8 overflow-hidden bg-white border-t">
-          <nuxt-link
-            v-if="status === 'unauthenticated'"
-            to="/login"
-            class="flex flex-row items-center gap-4 text-base font-bold"
-          >
-            <ui-icon icon="user" />
-            Login
-          </nuxt-link>
+        <hr class="mt-auto" />
 
-          <div
-            v-if="status === 'authenticated'"
-            class="flex flex-col items-start space-y-2 text-base font-bold"
-          >
-            <div class="max-w-full overflow-hidden whitespace-nowrap text-ellipsis">
-              {{ data.user.email }}
+        <div class="container">
+          <div class="max-w-full py-8 overflow-hidden bg-white xl:px-8">
+            <nuxt-link
+              v-if="status === 'unauthenticated'"
+              to="/login"
+              class="flex flex-row items-center gap-4 text-base font-bold"
+            >
+              <ui-icon icon="user" />
+              Login
+            </nuxt-link>
+
+            <div
+              v-if="status === 'authenticated'"
+              class="flex flex-col items-start space-y-2 text-base font-bold"
+            >
+              <div class="max-w-full overflow-hidden whitespace-nowrap text-ellipsis">
+                {{ data.user.email }}
+              </div>
+              <button @click="signOut">
+                Logout
+              </button>
             </div>
-            <button @click="signOut">
-              Logout
-            </button>
           </div>
+
         </div>
       </div>
     </div>
@@ -60,32 +58,7 @@
 
 <script setup>
 const { data, status, signOut } = useSession();
-
-</script>
-
-<script >
-export default {
-  name: 'mainSidebar',
-
-  mounted: function() {
-    const page = document.querySelector('body');
-    const menuToggle = document.getElementById('sidebar-toggle');
-
-    menuToggle.addEventListener("click", function () {
-      let ariaState = menuToggle.getAttribute("aria-expanded");
-
-      if (ariaState == "false") {
-        page.classList.add('menu-visible');
-        menuToggle.setAttribute("aria-expanded", "true");
-      } else {
-        page.classList.remove('menu-visible');
-        menuToggle.setAttribute("aria-expanded", "false");
-
-        closeMainMenu();
-      }
-    });
-  }
-}
+const menuOpen = ref(true)
 </script>
 
 <style lang="scss">
@@ -109,6 +82,7 @@ export default {
   @apply hidden xl:flex;
   @apply fixed top-20 left-0 z-40 xl:relative xl:top-0;
   @apply flex-grow justify-between items-center flex-col;
+  @apply p-6 xl:p-0;
   @apply w-full max-w-full h-screen xl:h-auto xl:w-auto;
   @apply bg-white shadow xl:shadow-none;
 
@@ -118,7 +92,7 @@ export default {
     @apply w-full;
   }
 
-  .menu-visible & {
+  &.menu-visible {
     @apply flex;
   }
 }
