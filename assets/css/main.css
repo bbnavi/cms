@@ -19,6 +19,13 @@ a:focus {
   @apply text-brand;
 }
 
+/* HR Base Styles */
+hr,
+.hr {
+  @apply border-t;
+  @apply w-full;
+}
+
 /* Form Field */
 /* TODO: Put in component? */
 .form-field h3 {

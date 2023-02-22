@@ -1,10 +1,10 @@
 <template>
-  <div class="flex items-center justify-between mb-8 ">
+  <div class="flex flex-col justify-between gap-8 mb-8 md:flex-row md:items-center">
     <h1 class="text-4xl">
       {{ $t(`modules.${params.module}.title`) }}
     </h1>
 
-    <div class="flex items-center gap-2">
+    <div class="flex flex-row items-center gap-2">
       <input
         v-model="searchValue"
         type="search"
