@@ -45,6 +45,13 @@ const svgIconClass = computed(() => {
 const handleClick = () => {
   emit('update:modelValue', !props.modelValue)
 }
+
+watchEffect(() => {
+  if (process.client) {
+    document.body.classList.toggle('noscroll', props.modelValue)
+  }
+})
+
 </script>
 
 <style scoped>
