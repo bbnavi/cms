@@ -16,10 +16,19 @@
 
       <div class="block xl:hidden">
         <!-- TODO: Menu Toggle! -->
-        <ui-icon icon="menu" />
+        <button
+          id="sidebar-toggle"
+          type="button"
+          data-toggle="collapse"
+          aria-controls="main-sidebar-menu"
+          aria-expanded="false"
+          aria-label="Navigation ein und ausschalten"
+        >
+          <ui-icon icon="menu" />
+        </button>
       </div>
 
-      <div class="main-sidebar-menu">
+      <div id="main-sidebar-menu" class="main-sidebar-menu">
         <main-nav />
 
         <div class="max-w-full p-8 overflow-hidden bg-white border-t">
@@ -50,7 +59,33 @@
 </template>
 
 <script setup>
-const { data, status, signOut } = useSession()
+const { data, status, signOut } = useSession();
+
+</script>
+
+<script >
+export default {
+  name: 'mainSidebar',
+
+  mounted: function() {
+    const page = document.querySelector('body');
+    const menuToggle = document.getElementById('sidebar-toggle');
+
+    menuToggle.addEventListener("click", function () {
+      let ariaState = menuToggle.getAttribute("aria-expanded");
+
+      if (ariaState == "false") {
+        page.classList.add('menu-visible');
+        menuToggle.setAttribute("aria-expanded", "true");
+      } else {
+        page.classList.remove('menu-visible');
+        menuToggle.setAttribute("aria-expanded", "false");
+
+        closeMainMenu();
+      }
+    });
+  }
+}
 </script>
 
 <style lang="scss">
@@ -80,7 +115,11 @@ const { data, status, signOut } = useSession()
   height: calc(100vh - 80px);
 
   > div {
-    @apply w-full xl:w-auto;
+    @apply w-full;
+  }
+
+  .menu-visible & {
+    @apply flex;
   }
 }
 </style>
