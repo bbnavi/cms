@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  app:
+    image: ghcr.io/bbnavi/cms:latest
+    restart: unless-stopped
+    networks:
+      public:
+    environment:
+      NUXT_PUBLIC_AUTH_SECRET: ${NUXT_PUBLIC_AUTH_SECRET}
+      NUXT_PUBLIC_AUTH_ORIGIN: ${NUXT_PUBLIC_AUTH_ORIGIN}
+      NUXT_PUBLIC_AUTH_ENDPOINT: ${NUXT_PUBLIC_AUTH_ENDPOINT}
+      NUXT_PUBLIC_USER_ENDPOINT: ${NUXT_PUBLIC_USER_ENDPOINT}
+      NUXT_PUBLIC_GRAPHQL_ENDPOINT: ${NUXT_PUBLIC_GRAPHQL_ENDPOINT}
+      NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT: ${NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT}
+    command: yarn start
+    expose:
+      - 80
+
+networks:
+  public:
+    external: true
