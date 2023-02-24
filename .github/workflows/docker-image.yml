@@ -21,19 +21,26 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         cache-from: |
-          type=registry,ref=registry.gitlab.tpwd.de/tpwd/bb-navi/datahub-cms
+          type=registry,ref=ghcr.io/bbnavi/cms
         push: true
-        tags: registry.gitlab.tpwd.de/tpwd/bb-navi/datahub-cms:staging
+        tags: ghcr.io/bbnavi/cms
   deploy:
     runs-on: ubuntu-latest
+    environment: production
     needs:
       - prep
     container: r.planetary-quantum.com/quantum-public/cli:2
     env:
+      NUXT_PUBLIC_AUTH_SECRET: ${{ secrets.NUXT_PUBLIC_AUTH_SECRET }}
+      NUXT_PUBLIC_AUTH_ORIGIN: ${{ secrets.NUXT_PUBLIC_AUTH_ORIGIN }}
+      NUXT_PUBLIC_AUTH_ENDPOINT: ${{ secrets.NUXT_PUBLIC_AUTH_ENDPOINT }}
+      NUXT_PUBLIC_USER_ENDPOINT: ${{ secrets.NUXT_PUBLIC_USER_ENDPOINT }}
+      NUXT_PUBLIC_GRAPHQL_ENDPOINT: ${{ secrets.NUXT_PUBLIC_GRAPHQL_ENDPOINT }}
+      NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT: ${{ secrets.NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT }}
       QUANTUM_USER: ${{ secrets.QUANTUM_USER }}
       QUANTUM_PASSWORD: ${{ secrets.QUANTUM_PASSWORD }}
       QUANTUM_ENDPOINT: "tpwd-bb-navi"
-      QUANTUM_STACK: "bbnavi-datahub-nuxt-cms"
+      QUANTUM_STACK: "bbnavi-datahub-cms-nuxt"
     steps:
       - uses: actions/checkout@v2
       - name: Deploy to Planetary Quantum
