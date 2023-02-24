@@ -14,8 +14,12 @@ services:
       NUXT_PUBLIC_GRAPHQL_ENDPOINT: ${NUXT_PUBLIC_GRAPHQL_ENDPOINT}
       NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT: ${NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT}
     command: yarn start
-    expose:
-      - 80
+    deploy:
+      labels:
+        traefik.enable: "true"
+        traefik.port: 3000
+        traefik.docker.network: public
+        traefik.main.frontend.rule: Host:preview.cms.bbnavi.de
 
 networks:
   public:
