@@ -4,8 +4,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html,
 body {
   @apply bg-gray-50;
+}
+
+body {
   @apply xl:pl-80;
 
   scroll-behavior: smooth;
@@ -13,7 +17,7 @@ body {
 }
 
 body.noscroll {
-  overflow: hidden;
+  @apply overflow-hidden xl:overflow-auto;
 }
 
 /* Anchor Base Styles */
