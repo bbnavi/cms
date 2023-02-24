@@ -24,6 +24,8 @@
     "@vue-leaflet/vue-leaflet": "^0.8.2",
     "@vueup/vue-quill": "^1.1.0",
     "leaflet": "^1.9.3",
+    "minio": "^7.0.32",
+    "nanoid": "^4.0.1",
     "nuxt-icons": "^3.0.0",
     "vue3-easy-data-table": "^1.5.31"
   }

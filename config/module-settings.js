@@ -97,7 +97,13 @@ export const config = {
             }
           }
         }
-      }
+      },
+      mediaContents: {
+        component: 'field-generic-list',
+        defaultValue: [],
+        listTitle: 'modules.point_of_interest.form.headlines.mediaContents',
+        listItemComponent: 'field-generic-listitem-media-content'
+      },
     }
   },
 

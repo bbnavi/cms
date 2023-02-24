@@ -49,6 +49,10 @@ export default NuxtAuthHandler({
 
           const data = await response.json()
           const application = data.applications[0]
+          const minio = data.minio
+
+          console.log('minio', minio)
+          console.log('session data', data)
 
           if (response.status === 200) {
             return Object.assign(data.user, {
@@ -58,7 +62,8 @@ export default NuxtAuthHandler({
               image: {
                 authentication_token: data.user.authentication_token,
                 oauth_client_id: application?.uid,
-                oauth_client_secret: application?.secret
+                oauth_client_secret: application?.secret,
+                minio
               }
             })
           }

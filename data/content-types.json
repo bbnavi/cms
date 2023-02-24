@@ -1,0 +1,26 @@
+[
+  {
+    "value": "image",
+    "label": "Bild"
+  },
+  {
+    "value": "audio",
+    "label": "Audio"
+  },
+  {
+    "value": "video",
+    "label": "Video"
+  },
+  {
+    "value": "logo",
+    "label": "Logo"
+  },
+  {
+    "value": "thumbnail",
+    "label": "Thumbnail"
+  },
+  {
+    "value": "attachement",
+    "label": "Anhang"
+  }
+]

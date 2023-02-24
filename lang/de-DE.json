@@ -56,7 +56,8 @@
           "contact": "Kontakt",
           "webUrls": "Links",
           "priceInformations": "Preisinformationen",
-          "operatingCompany": "Betreiber"
+          "operatingCompany": "Betreiber",
+          "mediaContents": "Dateien"
         },
         "labels": {
           "id": "ID",
@@ -92,6 +93,13 @@
           "priceInformations": {
             "description": "Beschreibung",
             "amount": "Betrag"
+          },
+          "mediaContent": {
+            "file": "Datei",
+            "sourceUrl": "URL",
+            "captionText": "Beschreibung",
+            "contentType": "Art",
+            "copyright": "Rechteinhaber"
           }
         }
       }
