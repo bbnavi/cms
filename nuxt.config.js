@@ -33,7 +33,7 @@ export default defineNuxtConfig({
   ],
 
   auth: {
-    origin: process.env.NUXT_PUBLIC_AUTH_ORIGIN
+    origin: 'https://preview.cms.bbnavi.de' // process.env.NUXT_PUBLIC_AUTH_ORIGIN
   },
 
   apollo: {
