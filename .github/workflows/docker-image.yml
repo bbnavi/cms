@@ -27,6 +27,13 @@ jobs:
     - id: docker_build
       uses: docker/build-push-action@v2
       with:
+        build-args: |
+          NUXT_PUBLIC_AUTH_SECRET=${{ secrets.NUXT_PUBLIC_AUTH_SECRET }}
+          NUXT_PUBLIC_AUTH_ORIGIN=${{ secrets.NUXT_PUBLIC_AUTH_ORIGIN }}
+          NUXT_PUBLIC_AUTH_ENDPOINT=${{ secrets.NUXT_PUBLIC_AUTH_ENDPOINT }}
+          NUXT_PUBLIC_USER_ENDPOINT=${{ secrets.NUXT_PUBLIC_USER_ENDPOINT }}
+          NUXT_PUBLIC_GRAPHQL_ENDPOINT=${{ secrets.NUXT_PUBLIC_GRAPHQL_ENDPOINT }}
+          NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT=${{ secrets.NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT }}
         cache-from: |
           type=registry,ref=ghcr.io/bbnavi/cms
         push: true
