@@ -13,8 +13,10 @@
 </template>
 
 <script setup>
-import categoriesQuery from '@/graphql/queries/categories.gql'
-import categoriesForScopeQuery from '@/graphql/queries/categoriesForScope.gql'
+import { storeToRefs } from 'pinia'
+import { useCategoryStore } from '@/stores/category'
+
+const { params } = useRoute()
 
 const emit = defineEmits(['update:entry'])
 
@@ -25,12 +27,10 @@ const props = defineProps({
   }
 })
 
-// load categories
-let categories = reactive([])
-const scopeId = null
-const query = scopeId ? categoriesForScopeQuery : categoriesQuery
-const { data } = await useAsyncQuery(query, { category_id: scopeId })
-categories = await data?.value?.categories
+const categoryStore = useCategoryStore()
+await categoryStore.fetchScoped(params.category_id)
+const { scopedEntries } = storeToRefs(categoryStore)
+const categories = scopedEntries.value || []
 
 const selectOptions = computed(() => {
   return categories.map(category => {
