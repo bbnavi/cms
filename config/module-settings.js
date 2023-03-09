@@ -124,7 +124,55 @@ export const config = {
       },
       title: {
         component: 'field-generic-string'
-      }
+      },
+      categoryName: {
+        component: 'field-generic-string'
+      },
+      categories: {
+        component: 'field-generic-list',
+        defaultValue: [],
+        listTitle: 'modules.news_item.form.headlines.categories',
+        listItemComponent: 'field-generic-listitem-category',
+        listMaxItems: 3
+      },
+      address: {
+        component: 'field-custom-address',
+        defaultValue: {
+          "addition": "",
+          "street": "",
+          "zip": "",
+          "city": "",
+          "kind": "default",
+          "geoLocation": {
+            "latitude": 0,
+            "longitude": 0
+          }
+        }
+      },
+      sourceUrl: {
+        component: 'field-generic-web-url'
+      },
+      publicationDate: {
+        component: 'field-generic-date'
+      },
+      publishedAt: {
+        component: 'field-generic-date'
+      },
+      newsType: {
+        component: 'field-generic-string'
+      },
+      author: {
+        component: 'field-generic-string'
+      },
+      charactersToBeShown: {
+        component: 'field-generic-number'
+      },
+      fullVersion: {
+        component: 'field-generic-boolean'
+      },
+      pushNotification: {
+        component: 'field-generic-boolean'
+      },
     }
   }
 }
