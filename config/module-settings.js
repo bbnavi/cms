@@ -1,5 +1,6 @@
 export const config = {
   point_of_interest: {
+    name: 'Orte',
     graphQL: {
       queryRootIndex: 'pointsOfInterest',
       queryRootEntry: 'pointOfInterest'
@@ -108,6 +109,7 @@ export const config = {
   },
 
   news_item: {
+    name: 'Nachrichten',
     graphQL: {
       queryRootIndex: 'newsItems',
       queryRootEntry: 'newsItem'
