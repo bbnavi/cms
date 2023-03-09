@@ -8,38 +8,15 @@
         </nuxt-link>
       </li>
 
-      <li>
-        <nuxt-link to="/a">
-          <ui-icon icon="disabled" />
-          Baustellen
-        </nuxt-link>
-      </li>
-
-      <li>
-        <nuxt-link to="/b">
-          <ui-icon icon="coworking" />
-          Coworking
-        </nuxt-link>
-      </li>
-
-      <li>
-        <nuxt-link to="/c">
-          <ui-icon icon="bicycle" />
-          Fahrräder
-        </nuxt-link>
-      </li>
-      
-      <li>
-        <nuxt-link to="/d">
-          <ui-icon icon="car-pin-location" />
-          Mitfahrpunkte
-        </nuxt-link>
-      </li>
-      
-      <li>
-        <nuxt-link to="/e">
-          <ui-icon icon="places" />
-          Orte
+      <li
+        v-for="{ label, icon, iconFallback, routeName, params, query } in activeModules"
+        :key="label"
+      >
+        <nuxt-link :to="{ name: routeName, params: params, query: query }">
+          <ui-icon :icon="icon" :fallback="iconFallback" />
+          <span>
+            {{ label }}
+          </span>
         </nuxt-link>
       </li>
     </ul>
@@ -47,6 +24,8 @@
 </template>
 
 <script setup>
+import { useUserStore } from '@/stores/user'
+const { activeModules } = useUserStore()
 </script>
 
 <style lang="scss" scoped>

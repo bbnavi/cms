@@ -1,8 +1,6 @@
 <template>
   <div class="flex flex-col justify-between gap-8 mb-8 md:flex-row md:items-center">
-    <h1 class="text-4xl">
-      {{ $t(`modules.${params.module}.title`) }}
-    </h1>
+    <module-title />
 
     <div class="flex flex-row items-center gap-2">
       <input
@@ -12,7 +10,7 @@
       />
 
       <ui-button
-        :to="{ name: 'module-new', params: { module: params.module } }"
+        :to="{ name: params.category_id ? 'category-new' : 'module-new', params }"
         size="sm"
       >
         {{  $t('common.buttons.newEntry') }}
@@ -21,18 +19,11 @@
   </div>
 
   <main-content-box>
-    <module-data-table
-      :module="params.module"
-      :search-value="searchValue"
-    />
+    <module-data-table :search-value="searchValue" />
   </main-content-box>
 </template>
 
 <script setup>
 const { params } = useRoute()
 const searchValue = ref('')
-
-definePageMeta({
-  name: 'module-index',
-})
 </script>

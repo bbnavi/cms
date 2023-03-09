@@ -1,0 +1,12 @@
+query getPointsOfInterest($categoryIds: [ID]) {
+  pointsOfInterest(categoryIds: $categoryIds) {
+    id
+    name
+    visible
+    dataProvider{
+      name
+    }
+    updatedAt
+    createdAt
+  }
+}

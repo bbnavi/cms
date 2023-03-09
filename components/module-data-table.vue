@@ -10,7 +10,7 @@
       :search-value="searchValue"
     >
       <template #item-name="{ name, id }">
-        <nuxt-link :to="{ name: 'module-edit', params: { module: props.module, id: id } }">
+        <nuxt-link :to="{ name: categoryId ? 'category-edit' : 'module-edit', params: { module: moduleName, id: id } }">
           {{ name }}
         </nuxt-link>
       </template>
@@ -21,7 +21,7 @@
 
       <template #item-actions="{ id }">
         <div class="flex items-center gap-2">
-          <nuxt-link :to="{ name: 'module-edit', params: { module: props.module, id: id } }">
+          <nuxt-link :to="{ name: categoryId ? 'category-edit' : 'module-edit', params: { module: moduleName, id: id } }">
             <ui-icon icon="edit" />
           </nuxt-link>
 
@@ -45,24 +45,24 @@
 </template>
 
 <script setup>
+import { storeToRefs } from 'pinia'
+import { useCategoryStore } from '@/stores/category'
 import { getConfig } from '@/config/module-settings'
 import Vue3EasyDataTable from 'vue3-easy-data-table';
-//import 'vue3-easy-data-table/dist/style.css';
 
+const { params } = useRoute()
 const { $i18n } = useNuxtApp()
 
 const props = defineProps({
-  module: {
-    type: String,
-    required: true
-  },
   searchValue: {
     type: String,
     required: true
   }
 })
 
-const moduleConfig = getConfig(props.module)
+const categoryId = params.category_id
+const moduleName = params.module
+const moduleConfig = getConfig(moduleName)
 const headers = [
   { text: $i18n.t('common.dataTable.header.id'), value: "id", sortable: true },
   { text: $i18n.t('common.dataTable.header.name'), value: "name", sortable: true },
@@ -72,11 +72,17 @@ const headers = [
   { text: $i18n.t('common.dataTable.header.actions'), value: "actions" }
 ]
 
-const module = await import(`@/graphql/queries/modules/${props.module}/index.gql`)
+const categoryStore = useCategoryStore()
+await categoryStore.fetchScoped(categoryId)
+const { scopedEntries } = storeToRefs(categoryStore)
+const categoryIds = scopedEntries.value.map(category => category.id)
+
+const filename = categoryId ? 'category' : 'index'
+const module = await import(`@/graphql/queries/modules/${moduleName}/${filename}.gql`)
 const query = module.default
 
 let entries = reactive([])
-const { data } = await useAsyncQuery(query)
+const { data } = await useAsyncQuery(query, { categoryIds })
 entries = data?.value[moduleConfig.graphQL.queryRootIndex] || []
 
 const items = computed(() => {

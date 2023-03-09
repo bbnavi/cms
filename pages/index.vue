@@ -5,12 +5,12 @@
 
   <ul class="grid grid-cols-1 gap-8 md:grid-cols-2">
     <li
-      v-for="moduleName in activeModules"
-      :key="moduleName"
+      v-for="{ label, routeName, params, query } in activeModules"
+      :key="label"
       class="card"
     >
-      <nuxt-link :to="{ name: 'module-index', params: { module: moduleName }}">
-        {{ $t(`modules.${moduleName}.title`) }}
+      <nuxt-link :to="{ name: routeName, params: params, query: query }">
+        {{ label }}
       </nuxt-link>
     </li>
   </ul>

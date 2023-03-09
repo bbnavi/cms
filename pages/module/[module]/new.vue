@@ -1,7 +1,5 @@
 <template>
-  <h1 class="mb-8 text-4xl">
-    {{ $t(`modules.${params.module}.title`) }}
-  </h1>
+  <module-title />
 
   <main-content-box>
     <module-form :moduleName="params.module" />
@@ -12,6 +10,6 @@
 const { params } = useRoute()
 
 definePageMeta({
-  name: 'module-edit',
+  name: 'module-new',
 })
 </script>
