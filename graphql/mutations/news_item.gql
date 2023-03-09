@@ -20,14 +20,42 @@
 # : NewsItem!
 
 mutation (
-  $forceCreate: Boolean,
   $id: ID,
-  $title: String!
+  $forceCreate: Boolean,
+  $pushNotification: Boolean,
+  $author: String,
+  $title: String,
+  $externalId: String,
+  $fullVersion: Boolean,
+  $charactersToBeShown: Int,
+  $newsType: String,
+  $publicationDate: String,
+  $publishedAt: String,
+  $showPublishDate: Boolean,
+  $categoryName: String,
+  $categories: [CategoryInput!],
+  $sourceUrl: WebUrlInput,
+  $address: AddressInput,
+  $contentBlocks: [ContentBlockInput!],
 ) {
   createNewsItem (
-    forceCreate: $forceCreate,
     id: $id,
-    title: $title
+    forceCreate: $forceCreate,
+    pushNotification: $pushNotification,
+    author: $author,
+    title: $title,
+    externalId: $externalId,
+    fullVersion: $fullVersion,
+    charactersToBeShown: $charactersToBeShown,
+    newsType: $newsType,
+    publicationDate: $publicationDate,
+    publishedAt: $publishedAt,
+    showPublishDate: $showPublishDate,
+    categoryName: $categoryName,
+    categories: $categories,
+    sourceUrl: $sourceUrl,
+    address: $address,
+    contentBlocks: $contentBlocks,
   ) {
     id
     title
