@@ -83,17 +83,23 @@ const uploadData = computed({
     const minioData = userSessionData?.minio
 
     const file = event.target.files[0]
+    const filetype = file.type
+    const filename = file.name
     const key = ['cms', nanoid(), file.name].join('/')
     const publicURL = `${minioData.endpoint}/${minioData.bucket}/${key}`
 
     const reader = new FileReader()
     reader.readAsDataURL(file)
     reader.onload = () => {
+      const dataURL = reader.result
+
       props.entry.sourceUrl = publicURL
       props.entry.uploadData = {
         key,
+        filename,
+        filetype,
         publicURL,
-        dataURL: reader.result
+        dataURL
       }
     }
   }
