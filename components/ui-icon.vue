@@ -17,6 +17,10 @@
             type: String,
             default: '',
         },
+        fallback: {
+            type: String,
+            default: 'disabled',
+        },
     });
 
     const path = props.src ? props.src : '';
@@ -27,6 +31,6 @@
     });
 
     const svg = computed(() => {
-        return modules['/assets/icons/' + file + '.svg'] ?? modules['/assets/icons/checked.svg'];
+        return modules['/assets/icons/' + file + '.svg'] ?? modules['/assets/icons/' + props.fallback + '.svg'];
     });
 </script>
