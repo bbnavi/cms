@@ -26,6 +26,29 @@ export const uploadFile = async (minioConfig, filename, filetype, dataURL) => {
   }).then((response) => {
     console.log('upload response', response)
   }).catch((e) => {
-    console.error(e);
+    console.error(e)
   })
+}
+
+export const performUploads = async (minioConfig, formData) => {
+  const uploads = collectUploadData(formData)
+
+  await Promise.all(uploads.map(upload => {
+    // return promiseWait(5000)
+    return uploadFile(minioConfig, upload.key, upload.filetype, upload.dataURL)
+  }))
+}
+
+export const collectUploadData = (formData, uploads = []) => {
+  if (formData.uploadData) {
+    uploads.push(formData.uploadData)
+  }
+
+  Object.keys(formData).forEach(key => {
+    if (typeof formData[key] === 'object') {
+      collectUploadData(formData[key], uploads)
+    }
+  })
+
+  return uploads
 }
