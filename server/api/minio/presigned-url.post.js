@@ -2,11 +2,10 @@ import Minio from 'minio'
 
 export default defineEventHandler(async (event) => {
   const { minioConfig, key } = await readBody(event)
-
   const client = new Minio.Client({
-    endPoint: minioConfig.endpoint,
-    accessKey: minioConfig.accessKey,
-    secretKey: minioConfig.secretKey,
+    endPoint: minioConfig.endpoint.replace('https://', ''),
+    accessKey: minioConfig.access_key_id,
+    secretKey: minioConfig.secret_access_key,
     useSSL: true,
   })
 
