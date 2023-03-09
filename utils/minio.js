@@ -1,14 +1,15 @@
 export const getPresignedUrl = async (minioConfig, key) => {
-  fetch('/api/minio/presigned-url', {
+  const response = await fetch('/api/minio/presigned-url', {
     method: 'POST',
     body: JSON.stringify({
       key,
       minioConfig
-    }),
+    })
   })
-  // .then((response) => {
-  //   return response.json()
-  // })
+
+  const { url } = await response.json()
+
+  return url
 }
 
 export const uploadFile = async (minioConfig, filename, filetype, dataURL) => {
