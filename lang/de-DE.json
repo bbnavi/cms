@@ -38,10 +38,24 @@
     "news_item": {
       "title": "News",
       "form": {
+        "headlines": {
+          "categories": "Kategorien",
+        },
         "labels": {
           "id": "ID",
           "externalId": "Externe ID",
-          "title": "Titel"
+          "title": "Titel",
+          "categoryName": "Kategorie",
+          "cateogories": "Kategorien",
+          "address": "Adresse",
+          "sourceUrl": "Quelle",
+          "publicationDate": "Veröffentlichungsdatum",
+          "publishedAt": "Veröffentlicht am",
+          "newsType": "Art",
+          "author": "Autor",
+          "charactersToBeShown": "Anzahl Zeichen",
+          "fullVersion": "Vollversion",
+          "pushNotification": "Push-Benachrichtigung"
         }
       }
     },
