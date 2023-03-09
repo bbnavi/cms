@@ -20,7 +20,10 @@
     >
       {{ $t('common.buttons.cancel') }}
     </ui-button>
-    <ui-button @click="submitForm">
+    <ui-button
+      :loading="isLoading"
+      @click="submitForm"
+    >
       {{ isNew ? $t('common.buttons.createEntry') : $t('common.buttons.updateEntry') }}
     </ui-button>
   </div>
@@ -33,6 +36,7 @@
 
 <script setup>
 import { getConfig } from '@/config/module-settings'
+import { performUploads } from '@/utils/minio'
 
 const props = defineProps({
   moduleName: {
@@ -43,9 +47,11 @@ const props = defineProps({
 
 const { params } = useRoute()
 const router = useRouter()
+const { data:sessionData } = useSession()
 const moduleConfig = getConfig(props.moduleName)
 const formFields = moduleConfig.formFields
 const isNew = params.id === undefined
+const isLoading = ref(false)
 
 let entry = reactive({})
 if(params.id) {
@@ -55,6 +61,11 @@ if(params.id) {
   const { data } = await useAsyncQuery(query, { id: params.id})
 
   entry = data?.value[moduleConfig.graphQL.queryRootEntry] || []
+
+  for (const [name, options] of Object.entries(formFields)) {
+    entry[name] = entry[name] || options.defaultValue || ''
+  }
+
   entry.forceCreate = false
 } else {
   delete formFields.id
@@ -72,11 +83,21 @@ const handleInput = (inputValue) => {
 }
 
 const submitForm = async () => {
+  isLoading.value = true
   const module = await import(`@/graphql/mutations/${props.moduleName}.gql`)
   const mutation = module.default
   const { mutate } = useMutation(mutation, entry)
+
+  const userSessionData = sessionData.value?.user.image
+  const minioConfig = userSessionData?.minio
+
+  // upload files
+  await performUploads(minioConfig, entry)
+
+  // submit form
   const { data } = await mutate(entry)
 
+  isLoading.value = false
   router.push({ name: 'module-index', params: { module: props.moduleName } })
 }
 </script>
