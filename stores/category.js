@@ -16,18 +16,19 @@ export const useCategoryStore = defineStore({
     async fetch (scopeId = null) {
       const query = scopeId ? categoriesForScopeQuery : categoriesQuery
       const { data } = await useAsyncQuery(query, { category_id: scopeId })
-      const categoriesResult = await data?.value?.categories
-      const categories = categoriesResult.length ? categoriesResult : [this.getCategoryById(scopeId)]
+      const categories = await data?.value?.categories
 
-      return categories
+      return categories || []
     },
 
-    async init (scopeId = null) {
-      this.entries = await this.fetch(scopeId)
+    async init () {
+      this.entries = await this.fetch()
     },
 
     async fetchScoped (scopeId = null) {
-      this.scopedEntries = await this.fetch(scopeId)
+      const entries = await this.fetch(scopeId)
+
+      this.scopedEntries = entries.length ? entries : [this.getCategoryById(scopeId)]
     },
 
     getCategoryById (categoryId) {
