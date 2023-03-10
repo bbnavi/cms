@@ -1,4 +1,8 @@
 <template>
+  <NuxtLoadingIndicator
+    color="#DA1B1B"
+  />
+
   <main-sidebar />
 
   <div class="container mx-auto">
