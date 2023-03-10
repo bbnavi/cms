@@ -9,28 +9,21 @@ export const useUserStore = defineStore({
     return {
       user: null,
       applications: [],
-      roles: []
+      roles: [],
+      modules: []
     }
   },
 
   actions: {
     init (value) {
+      const categoryStore = useCategoryStore()
+
       this.user = value.user
       this.applications = value.applications
       this.roles = value.roles
-    }
-  },
+      this.modules = []
 
-  getters: {
-    permission () {
-      return this.user.role
-    },
-
-    activeModules () {
-      const categoryStore = useCategoryStore()
-
-      let modules = []
-
+      // setup modules
       this.roles && Object.keys(this.roles)
         .filter((key) => this.roles[key] === true)
         .map(role => {
@@ -38,7 +31,7 @@ export const useUserStore = defineStore({
           const moduleIcon = `modules/${moduleName}`
           const moduleConfig = getConfig(moduleName)
 
-          modules.push({
+          this.modules.push({
             name: moduleName,
             icon: moduleIcon,
             iconFallback: moduleIcon,
@@ -51,7 +44,7 @@ export const useUserStore = defineStore({
           })
 
           // module category entries
-          this.roles[`${role}_category_ids`] && this.roles[`${role}_category_ids`].map(id => modules.push({
+          this.roles[`${role}_category_ids`] && this.roles[`${role}_category_ids`].map(id => this.modules.push({
             name: `${moduleName}_category_${id}`,
             icon: `modules/${moduleName}_category_${id}`,
             iconFallback: moduleIcon,
@@ -64,8 +57,16 @@ export const useUserStore = defineStore({
             query: {}
           }))
         })
+    }
+  },
 
-      return modules
+  getters: {
+    permission () {
+      return this.user.role
+    },
+
+    activeModules () {
+      return this.modules
     }
   }
 })
