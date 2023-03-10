@@ -10,7 +10,7 @@
       :search-value="searchValue"
     >
       <template #item-name="{ name, id }">
-        <nuxt-link :to="{ name: categoryId ? 'category-edit' : 'module-edit', params: { module: moduleName, id: id } }">
+        <nuxt-link :to="{ name: categoryId ? 'category-edit' : 'module-edit', params: { module: moduleName, category_id: categoryId, id: id } }">
           {{ name }}
         </nuxt-link>
       </template>
@@ -21,7 +21,7 @@
 
       <template #item-actions="{ id }">
         <div class="flex items-center gap-2">
-          <nuxt-link :to="{ name: categoryId ? 'category-edit' : 'module-edit', params: { module: moduleName, id: id } }">
+          <nuxt-link :to="{ name: categoryId ? 'category-edit' : 'module-edit', params: { module: moduleName, category_id: categoryId, id: id } }">
             <ui-icon icon="edit" />
           </nuxt-link>
 
