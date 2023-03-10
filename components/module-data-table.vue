@@ -19,6 +19,12 @@
         {{ visible }}
       </template>
 
+      <template #item-createdAt="{ createdAt }">
+        <span class="whitespace-nowrap">
+          {{ $dayjs(createdAt).format('DD.MM.YYYY - HH:mm') }}
+        </span>
+      </template>
+
       <template #item-actions="{ id }">
         <div class="flex items-center gap-2">
           <nuxt-link :to="{ name: categoryId ? 'category-edit' : 'module-edit', params: { module: moduleName, category_id: categoryId, id: id } }">
