@@ -21,7 +21,7 @@
 
       <template #item-createdAt="{ createdAt }">
         <span class="whitespace-nowrap">
-          {{ $dayjs(createdAt).format('DD.MM.YYYY - HH:mm') }}
+          {{ $dayjs(createdAt, 'YYYY-MM-DD HH:mm:ss').format('DD.MM.YYYY - HH:mm') }}
         </span>
       </template>
 
