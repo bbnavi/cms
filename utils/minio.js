@@ -40,15 +40,15 @@ export const performUploads = async (minioConfig, formData) => {
 }
 
 export const collectUploadData = (formData, uploads = []) => {
-  if (formData.uploadData) {
+  if (formData && formData.uploadData) {
     uploads.push(formData.uploadData)
-  }
 
-  Object.keys(formData).forEach(key => {
-    if (typeof formData[key] === 'object') {
-      collectUploadData(formData[key], uploads)
-    }
-  })
+    Object.keys(formData).forEach(key => {
+      if (typeof formData[key] === 'object') {
+        collectUploadData(formData[key], uploads)
+      }
+    })
+  }
 
   return uploads
 }
