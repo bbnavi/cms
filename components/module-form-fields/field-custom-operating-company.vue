@@ -9,7 +9,7 @@
         <div class="col-span-12">
           <form-input-text
             v-model="inputValue.name"
-            :label="$t('modules.point_of_interest.form.labels.contact.firstName')"
+            :label="$t('modules.point_of_interest.form.labels.contact.name')"
           />
         </div>
 
@@ -87,12 +87,12 @@
         <form-input-text
           v-model="inputValue.address.geoLocation.latitude"
           :label="$t('modules.point_of_interest.form.labels.latitude')"
-          type="number"
+          type="string"
         />
         <form-input-text
           v-model="inputValue.address.geoLocation.longitude"
           :label="$t('modules.point_of_interest.form.labels.longitude')"
-          type="number"
+          type="string"
         />
       </div>
       <div v-if="inputValue.address.geoLocation" class="col-span-6">

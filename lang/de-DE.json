@@ -40,6 +40,8 @@
       "form": {
         "headlines": {
           "categories": "Kategorien",
+          "address": "Adresse",
+          "sourceUrl": "Quelle"
         },
         "labels": {
           "id": "ID",
@@ -94,6 +96,7 @@
             "open": "geöffnet?"
           },
           "contact": {
+            "name": "Name",
             "firstName": "Vorname",
             "lastName": "Nachname",
             "email": "E-Mail",

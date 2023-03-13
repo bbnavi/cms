@@ -5,6 +5,7 @@
     :readonly="options && options.readonly"
     :required="options && options.required"
     type="number"
+    step=".000001"
   />
 </template>
 

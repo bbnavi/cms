@@ -30,12 +30,12 @@
         <form-input-text
           v-model="entry.geoLocation.latitude"
           :label="$t('modules.point_of_interest.form.labels.latitude')"
-          type="number"
+          type="string"
         />
         <form-input-text
           v-model="entry.geoLocation.longitude"
           :label="$t('modules.point_of_interest.form.labels.longitude')"
-          type="number"
+          type="string"
         />
       </div>
       <div v-if="entry.geoLocation" class="col-span-6">
@@ -49,6 +49,7 @@
 
     <ui-button
       v-if="removable"
+      type="button"
       @click="removeEntry"
     >
       {{ $t('common.buttons.remove') }}

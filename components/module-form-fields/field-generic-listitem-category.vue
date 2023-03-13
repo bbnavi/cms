@@ -6,7 +6,10 @@
       class="flex-1"
     />
 
-    <ui-button @click="emit('update:entry', null)">
+    <ui-button
+      type="button"
+      @click="emit('update:entry', null)"
+    >
       {{ $t('common.buttons.remove') }}
     </ui-button>
   </div>

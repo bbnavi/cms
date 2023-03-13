@@ -12,6 +12,7 @@
       <ui-button
         :to="{ name: params.category_id ? 'category-new' : 'module-new', params }"
         size="sm"
+        type="button"
       >
         {{  $t('common.buttons.newEntry') }}
       </ui-button>

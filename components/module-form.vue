@@ -3,30 +3,33 @@
     {{ isNew ? $t('common.headlines.newEntry') : $t('common.headlines.editEntry') }}
   </h2>
 
-  <module-form-field
-    v-for="(options, name) in formFields"
-    :key="name"
-    :name="name"
-    :options="options"
-    :module-name="props.moduleName"
-    :modelValue="entry[name]"
-    @update:modelValue="(value) => handleInput({ name, value })"
-  />
+  <form @submit.prevent="submitForm">
+    <module-form-field
+      v-for="(options, name) in formFields"
+      :key="name"
+      :name="name"
+      :options="options"
+      :module-name="props.moduleName"
+      :modelValue="entry[name]"
+      @update:modelValue="(value) => handleInput({ name, value })"
+    />
 
-  <div class="flex gap-6 mt-12">
-    <ui-button
-      :to="{ name: 'module-index', params: { module: props.moduleName }}"
-      action="secondary"
-    >
-      {{ $t('common.buttons.cancel') }}
-    </ui-button>
-    <ui-button
-      :loading="isLoading"
-      @click="submitForm"
-    >
-      {{ isNew ? $t('common.buttons.createEntry') : $t('common.buttons.updateEntry') }}
-    </ui-button>
-  </div>
+    <div class="flex gap-6 mt-12">
+      <ui-button
+        :to="{ name: 'module-index', params: { module: props.moduleName }}"
+        type="button"
+        action="secondary"
+      >
+        {{ $t('common.buttons.cancel') }}
+      </ui-button>
+      <ui-button
+        :loading="isLoading"
+        type="submit"
+      >
+        {{ isNew ? $t('common.buttons.createEntry') : $t('common.buttons.updateEntry') }}
+      </ui-button>
+    </div>
+  </form>
 
   <div class="hidden overflow-auto">
     <pre class="p-4 mb-8 bg-gray-100">{{ formFields }}</pre>
@@ -35,7 +38,7 @@
 </template>
 
 <script setup>
-import { getConfig } from '@/config/module-settings'
+import { getConfig, transformPayload } from '@/config/module-settings'
 import { performUploads } from '@/utils/minio'
 
 const props = defineProps({
@@ -63,6 +66,8 @@ if(params.id) {
   entry = data?.value[moduleConfig.graphQL.queryRootEntry] || []
 
   for (const [name, options] of Object.entries(formFields)) {
+    // entry[name] = entry[name] || (options.defaultValue === undefined ? '' : options.defaultValue)
+    console.log('entry[name]', entry[name], options.defaultValue);
     entry[name] = entry[name] || options.defaultValue || ''
   }
 
@@ -72,7 +77,7 @@ if(params.id) {
 
   // create new entry
   for (const [name, options] of Object.entries(formFields)) {
-    entry[name] = options.defaultValue || ''
+    entry[name] = options.defaultValue === undefined ? '' : options.defaultValue
   }
 
   entry.forceCreate = true
@@ -94,8 +99,11 @@ const submitForm = async () => {
   // upload files
   await performUploads(minioConfig, entry)
 
+  const mutationPayload = transformPayload(props.moduleName, entry)
+
   // submit form
-  const { data } = await mutate(entry)
+  console.log('sumit form', mutationPayload)
+  const { data } = await mutate(mutationPayload)
 
   isLoading.value = false
   router.push({ name: 'module-index', params: { module: props.moduleName } })

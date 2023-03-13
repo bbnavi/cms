@@ -42,6 +42,7 @@
 
     <ui-button
       v-if="removable"
+      type="button"
       @click="emit('update:entry', null)"
     >
       {{ $t('common.buttons.remove') }}

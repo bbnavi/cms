@@ -9,7 +9,7 @@
       @update:modelValue="(value) => emit('update:modelValue', value)"
     />
 
-    <div class="p-4 mb-20 overflow-x-auto bg-slate-100">
+    <div class="hidden p-4 mb-20 overflow-x-auto bg-slate-100">
       <pre>name: {{ name }}</pre>
       <pre>modelValue: {{ modelValue }}</pre>
       <pre>options: {{ options }}</pre>

@@ -19,7 +19,10 @@
       v-if="options.listMaxItems === undefined || modelValue.length < options.listMaxItems"
       class="mt-2"
     >
-      <ui-button @click="addEntry">
+      <ui-button
+        type="button"
+        @click="addEntry"
+      >
         {{ $t('common.buttons.addEntry') }}
       </ui-button>
     </div>
