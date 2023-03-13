@@ -1,6 +1,6 @@
 <template>
   <NuxtLoadingIndicator
-    color="#DA1B1B"
+    color="#000"
   />
 
   <main-sidebar />
