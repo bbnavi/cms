@@ -48,6 +48,7 @@ export const config = {
       },
       openingHours: {
         component: 'field-generic-list',
+        inputType: 'OpeningHourInput',
         defaultValue: [],
         listTitle: 'modules.point_of_interest.form.headlines.openingHours',
         listItemComponent: 'field-generic-listitem-opening-hours'
