@@ -30,6 +30,8 @@
 </template>
 
 <script setup>
+import InputProxyClass from '@/graphql/inputs/InputProxyClass'
+
 const emit = defineEmits(['update:modelValue'])
 
 const props = defineProps({
@@ -64,10 +66,8 @@ const handleInput = (listIndex, value) => {
 }
 
 const addEntry = () => {
-  const newEntry = {
-    // '__typename': 'Category'
-  }
+  const defaultValue = new InputProxyClass(props.options.inputType, {})
 
-  props.modelValue.push(newEntry)
+  props.modelValue.push(defaultValue)
 }
 </script>
