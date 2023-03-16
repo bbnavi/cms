@@ -10,6 +10,7 @@
           <form-input-text
             v-model="inputValue.name"
             :label="$t('modules.point_of_interest.form.labels.contact.name')"
+            required
           />
         </div>
 
