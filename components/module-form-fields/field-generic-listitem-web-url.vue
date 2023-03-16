@@ -3,15 +3,15 @@
     <div class="grid flex-1 grid-cols-12 gap-4">
       <div class="col-span-6">
         <form-input-text
-          v-model="entry.description"
-          :label="$t('modules.point_of_interest.form.labels.webUrl.description')"
+          v-model="entry.url"
+          :label="$t('modules.point_of_interest.form.labels.webUrl.url')"
           required
         />
       </div>
       <div class="col-span-6">
         <form-input-text
-          v-model="entry.url"
-          :label="$t('modules.point_of_interest.form.labels.webUrl.url')"
+          v-model="entry.description"
+          :label="$t('modules.point_of_interest.form.labels.webUrl.description')"
           required
         />
       </div>
