@@ -1,7 +1,7 @@
 class GeoLocationInput {
-  constructor({ latitude, longitude }) {
-    this.latitude = latitude
-    this.longitude = longitude
+  constructor(data) {
+    this.latitude = data?.latitude || 0
+    this.longitude = data?.longitude || 0
   }
 }
 
