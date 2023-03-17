@@ -2,7 +2,7 @@ import { useUserStore } from '@/stores/user'
 
 export default defineNuxtPlugin(async (nuxtApp) => {
   const config = useRuntimeConfig()
-  const { status, data } = useSession()
+  const { status, data, signOut } = useSession()
   const user = useUserStore(nuxtApp.$pinia)
 
   if (status.value === 'authenticated') {
@@ -14,6 +14,10 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     })
 
     const payload = await response.json()
+
+    if (response.status === 406) {
+      signOut()
+    }
 
     user.init(payload)
   }
