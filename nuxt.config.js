@@ -4,6 +4,7 @@ export default defineNuxtConfig({
     public: {
       authEndpoint: process.env.NUXT_PUBLIC_AUTH_ENDPOINT,
       userEndpoint: process.env.NUXT_PUBLIC_USER_ENDPOINT,
+      datahubEndpoint: process.env.NUXT_PUBLIC_DATAHUB_ENDPOINT,
       authOrigin: process.env.NUXT_PUBLIC_AUTH_ORIGIN,
       graphQlAuthEndpoint: process.env.NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT
     }
