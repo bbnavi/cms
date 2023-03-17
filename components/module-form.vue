@@ -11,6 +11,7 @@
       :options="options"
       :module-name="props.moduleName"
       :modelValue="entry[name]"
+      :exclude-form-field-attributes="excludeFormFieldAttributes[name]"
       @update:modelValue="(value) => handleInput({ name, value })"
     />
 
@@ -51,10 +52,32 @@ const props = defineProps({
 const { params } = useRoute()
 const router = useRouter()
 const { data:sessionData } = useSession()
+const runtimeConfig = useRuntimeConfig()
 const moduleConfig = getConfig(props.moduleName)
 const formFields = moduleConfig.formFields
 const isNew = params.id === undefined
 const isLoading = ref(false)
+
+
+// form config
+let excludeFormFields = []
+let excludeFormFieldAttributes = {}
+if (params.category_id) {
+  const formConfigUrl = `${runtimeConfig.datahubEndpoint}/cms/form_configs/${props.moduleName}/${params.category_id}/fields.json`
+  const formConfigResponse = await fetch(formConfigUrl, {
+    method: 'GET',
+    headers: { 'Authorization': 'Bearer ' + sessionData.value.user.image.authentication_token }
+  })
+  const formConfigData = await formConfigResponse.json()
+  excludeFormFields = formConfigData.exclude_form_fields.map(str => {
+    return str.split('_').map((word, index) => index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)).join('')
+  })
+
+  excludeFormFieldAttributes = formConfigData.exclude_form_field_attributes
+  excludeFormFields.forEach((fieldName) => {
+    delete formFields[fieldName]
+  })
+}
 
 let entry = reactive({})
 if(params.id) {

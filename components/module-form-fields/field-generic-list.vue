@@ -11,6 +11,7 @@
         :is="options.listItemComponent"
         :entry="entry"
         :removable="isRemovable"
+        :exclude-form-field-attributes="excludeFormFieldAttributes"
         @update:entry="(value) => handleInput(listIndex, value)"
       />
     </div>
@@ -50,6 +51,10 @@ const props = defineProps({
   moduleName: {
     type: String,
     required: true
+  },
+  excludeFormFieldAttributes: {
+    type: Object,
+    required: false
   }
 })
 

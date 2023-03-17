@@ -6,14 +6,16 @@
       :options="options"
       :module-name="moduleName"
       :modelValue="modelValue"
+      :exclude-form-field-attributes="excludeFormFieldAttributes"
       @update:modelValue="(value) => emit('update:modelValue', value)"
     />
 
-    <div class="hidden p-4 mb-20 overflow-x-auto bg-slate-100">
-      <pre>name: {{ name }}</pre>
-      <pre>modelValue: {{ modelValue }}</pre>
-      <pre>options: {{ options }}</pre>
-    </div>
+    <module-form-field-debug
+      :name="name"
+      :options="options"
+      :modelValue="modelValue"
+      :excludeFormFieldAttributes="excludeFormFieldAttributes"
+    />
   </div>
 </template>
 
@@ -36,6 +38,10 @@ const props = defineProps({
   moduleName: {
     type: String,
     required: true
+  },
+  excludeFormFieldAttributes: {
+    type: Object,
+    required: false
   }
 })
 </script>
