@@ -3,47 +3,56 @@
     <div class="grid flex-1 grid-cols-12 gap-4">
       <div class="col-span-6">
         <form-input-text
+          v-if="showField('addition')"
           v-model="entry.addition"
           :label="$t('modules.point_of_interest.form.labels.addition')"
         />
       </div>
       <div class="col-span-6">
         <form-input-text
+          v-if="showField('street')"
           v-model="entry.street"
           :label="$t('modules.point_of_interest.form.labels.street')"
         />
       </div>
       <div class="col-span-6">
         <form-input-text
+          v-if="showField('zip')"
           v-model="entry.zip"
           :label="$t('modules.point_of_interest.form.labels.zip')"
         />
       </div>
       <div class="col-span-6">
         <form-input-text
+          v-if="showField('city')"
           v-model="entry.city"
           :label="$t('modules.point_of_interest.form.labels.city')"
         />
       </div>
 
-      <div v-if="entry.geoLocation" class="col-span-6">
-        <form-input-text
-          v-model="entry.geoLocation.latitude"
-          :label="$t('modules.point_of_interest.form.labels.latitude')"
-          type="string"
-        />
-        <form-input-text
-          v-model="entry.geoLocation.longitude"
-          :label="$t('modules.point_of_interest.form.labels.longitude')"
-          type="string"
-        />
-      </div>
-      <div v-if="entry.geoLocation" class="col-span-6">
-        <form-input-location
-          v-model:latitute="entry.geoLocation.latitude"
-          v-model:longitude="entry.geoLocation.longitude"
-          class="w-full aspect-video"
-        />
+      <div
+        v-if="showField('geoLocation') && entry.geoLocation"
+        class="grid grid-cols-12 col-span-12 gap-4 mt-8"
+      >
+        <div class="col-span-6">
+          <form-input-text
+            v-model="entry.geoLocation.latitude"
+            :label="$t('modules.point_of_interest.form.labels.latitude')"
+            type="string"
+          />
+          <form-input-text
+            v-model="entry.geoLocation.longitude"
+            :label="$t('modules.point_of_interest.form.labels.longitude')"
+            type="string"
+          />
+        </div>
+        <div class="col-span-6">
+          <form-input-location
+            v-model:latitute="entry.geoLocation.latitude"
+            v-model:longitude="entry.geoLocation.longitude"
+            class="w-full aspect-video"
+          />
+        </div>
       </div>
     </div>
 
@@ -69,8 +78,16 @@ const props = defineProps({
     type: Boolean,
     required: false,
     default: false
+  },
+  excludeFormFieldAttributes: {
+    type: Object,
+    required: false
   }
 })
+
+const showField = (fieldName) => {
+  return props.excludeFormFieldAttributes.includes(fieldName) === false
+}
 
 const removeEntry = () => {
   emit('update:entry', null)
