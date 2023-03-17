@@ -71,7 +71,7 @@ const props = defineProps({
 })
 
 const sourceUrl = computed({
-  get() { return props.entry.sourceUrl },
+  get() { return props.entry.sourceUrl && props.entry.sourceUrl.url },
   set(value) { props.entry.sourceUrl = value }
 })
 
