@@ -31,6 +31,11 @@ export const useUserStore = defineStore({
           const moduleIcon = `modules/${moduleName}`
           const moduleConfig = getConfig(moduleName)
 
+          if (!moduleConfig) {
+            console.warn('Module settings not found', moduleName)
+            return
+          }
+
           this.modules.push({
             name: moduleName,
             icon: moduleIcon,
