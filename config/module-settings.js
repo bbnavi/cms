@@ -13,7 +13,7 @@ export const config = {
         required: true
       },
       description: {
-        component: 'field-custom-richtext',
+        component: 'field-generic-richtext',
         defaultValue: ''
       },
       categories: {
