@@ -27,11 +27,6 @@
       </ui-button>
     </div>
   </form>
-
-  <div class="hidden overflow-auto">
-    <pre class="p-4 mb-8 bg-gray-100">{{ formFields }}</pre>
-    <pre class="p-4 bg-gray-100">{{ entry }}</pre>
-  </div>
 </template>
 
 <script setup>
