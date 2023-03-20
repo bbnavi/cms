@@ -1,5 +1,5 @@
 <template>
-  <div class="form-field field-custom-contact">
+  <div class="form-field field-operation-company">
     <h3>
       {{ $t('modules.point_of_interest.form.headlines.operatingCompany') }}
     </h3>
@@ -9,7 +9,7 @@
         <div class="col-span-12">
           <form-input-text
             v-model="inputValue.name"
-            :label="$t('modules.point_of_interest.form.labels.contact.name')"
+            :label="$t('modules.point_of_interest.form.labels.operatingCompany.name')"
             required
           />
         </div>
@@ -17,32 +17,32 @@
         <div class="col-span-6">
           <form-input-text
             v-model="inputValue.contact.firstName"
-            :label="$t('modules.point_of_interest.form.labels.contact.firstName')"
+            :label="$t('modules.point_of_interest.form.labels.operatingCompany.firstName')"
           />
         </div>
         <div class="col-span-6">
           <form-input-text
             v-model="inputValue.contact.lastName"
-            :label="$t('modules.point_of_interest.form.labels.contact.lastName')"
+            :label="$t('modules.point_of_interest.form.labels.operatingCompany.lastName')"
           />
         </div>
         <div class="col-span-12">
           <form-input-text
             v-model="inputValue.contact.email"
-            :label="$t('modules.point_of_interest.form.labels.contact.email')"
+            :label="$t('modules.point_of_interest.form.labels.operatingCompany.email')"
             type="email"
           />
         </div>
         <div class="col-span-6">
           <form-input-text
             v-model="inputValue.contact.phone"
-            :label="$t('modules.point_of_interest.form.labels.contact.phone')"
+            :label="$t('modules.point_of_interest.form.labels.operatingCompany.phone')"
           />
         </div>
         <div class="col-span-6">
           <form-input-text
             v-model="inputValue.contact.fax"
-            :label="$t('modules.point_of_interest.form.labels.contact.fax')"
+            :label="$t('modules.point_of_interest.form.labels.operatingCompany.fax')"
           />
         </div>
 

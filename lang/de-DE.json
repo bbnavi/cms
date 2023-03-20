@@ -95,6 +95,14 @@
             "weekday": "Wochentag",
             "open": "geöffnet?"
           },
+          "operatingCompany": {
+            "name": "Name der Institution/Firma",
+            "firstName": "Vorname",
+            "lastName": "Nachname",
+            "email": "E-Mail",
+            "phone": "Telefon",
+            "fax": "Fax"
+          },
           "contact": {
             "name": "Name",
             "firstName": "Vorname",
@@ -105,7 +113,7 @@
           },
           "webUrl": {
             "url": "URL",
-            "description": "Beschreibung"
+            "description": "Linktext (wird ggf. statt der URL angezeigt)"
           },
           "priceInformations": {
             "description": "Beschreibung",

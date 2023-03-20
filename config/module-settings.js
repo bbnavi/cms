@@ -8,9 +8,6 @@ export const config = {
       queryRootEntry: 'pointOfInterest'
     },
     formFields: {
-      // externalId: {
-      //   component: 'field-custom-external-id'
-      // },
       name: {
         component: 'field-generic-string',
         required: true
@@ -53,32 +50,6 @@ export const config = {
         listTitle: 'modules.point_of_interest.form.headlines.openingHours',
         listItemComponent: 'field-generic-listitem-opening-hours'
       },
-      contact: {
-        component: 'field-custom-contact',
-        inputType: 'ContactInput',
-        defaultValue: {
-          "firstName": "",
-          "lastName": "",
-          "email": "",
-          "phone": "",
-          "fax": "",
-          "webUrls": [{}]
-        }
-      },
-      webUrls: {
-        component: 'field-generic-list',
-        inputType: 'WebUrlInput',
-        defaultValue: [],
-        listTitle: 'modules.point_of_interest.form.headlines.webUrls',
-        listItemComponent: 'field-generic-listitem-web-url'
-      },
-      priceInformations: {
-        component: 'field-generic-list',
-        inputType: 'PriceInput',
-        defaultValue: [],
-        listTitle: 'modules.point_of_interest.form.headlines.priceInformations',
-        listItemComponent: 'field-generic-listitem-price-information',
-      },
       operatingCompany: {
         component: 'field-custom-operating-company',
         inputType: 'OperatingCompanyInput',
@@ -107,6 +78,32 @@ export const config = {
             }
           }
         }
+      },
+      contact: {
+        component: 'field-custom-contact',
+        inputType: 'ContactInput',
+        defaultValue: {
+          "firstName": "",
+          "lastName": "",
+          "email": "",
+          "phone": "",
+          "fax": "",
+          "webUrls": [{}]
+        }
+      },
+      webUrls: {
+        component: 'field-generic-list',
+        inputType: 'WebUrlInput',
+        defaultValue: [],
+        listTitle: 'modules.point_of_interest.form.headlines.webUrls',
+        listItemComponent: 'field-generic-listitem-web-url'
+      },
+      priceInformations: {
+        component: 'field-generic-list',
+        inputType: 'PriceInput',
+        defaultValue: [],
+        listTitle: 'modules.point_of_interest.form.headlines.priceInformations',
+        listItemComponent: 'field-generic-listitem-price-information',
       },
       mediaContents: {
         component: 'field-generic-list',
