@@ -1,6 +1,8 @@
 <template>
   <form-group>
-    <form-label>
+    <form-label
+      :required="required"
+    >
       <span v-if="label">
         {{ label }}
       </span>
