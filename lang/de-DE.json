@@ -13,6 +13,9 @@
       "cancel": "Abbrechen",
       "save": "Speichern"
     },
+    "placeholder": {
+      "search": "Suche"
+    },
     "moduleAction": {
       "index": "Übersicht",
       "new": "Neuer Eintrag",

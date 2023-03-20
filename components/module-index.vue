@@ -5,6 +5,7 @@
     <div class="flex flex-row items-center gap-2">
       <input
         v-model="searchValue"
+        :placeholder="$t('common.placeholder.search')"
         type="search"
         class="h-8 px-2 border rounded outline-none"
       />
