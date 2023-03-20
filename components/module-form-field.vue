@@ -40,7 +40,8 @@ const props = defineProps({
     required: true
   },
   excludeFormFieldAttributes: {
-    type: Object,
+    type: Array,
+    default: () => [],
     required: false
   }
 })

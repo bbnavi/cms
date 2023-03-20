@@ -80,13 +80,16 @@ const props = defineProps({
     default: false
   },
   excludeFormFieldAttributes: {
-    type: Object,
+    type: Array,
+    default: () => [],
     required: false
   }
 })
 
 const showField = (fieldName) => {
-  return props.excludeFormFieldAttributes && props.excludeFormFieldAttributes.includes(fieldName) === false
+  if (props.excludeFormFieldAttributes.length === 0) return true
+
+  return props.excludeFormFieldAttributes.includes(fieldName) === false
 }
 
 const removeEntry = () => {
