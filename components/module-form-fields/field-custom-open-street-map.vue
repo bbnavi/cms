@@ -4,10 +4,6 @@
       {{ $t('modules.point_of_interest.form.headlines.openStreetMap') }}
     </h3>
 
-    <div>
-      excludeFormFieldAttributes: {{ excludeFormFieldAttributes }}
-    </div>
-
     <div class="flex items-start justify-between gap-4">
       <div class="grid flex-1 grid-cols-12 gap-4">
         <div v-if="showField('capacity')" class="col-span-6">
