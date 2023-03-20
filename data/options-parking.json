@@ -1,0 +1,42 @@
+[
+  {
+    "value": "surface",
+    "label": "Gewöhnlicher ebenerdiger Parkplatz"
+  },
+  {
+    "value": "street_side",
+    "label": "Parkbuchten/Parktaschen am Straßenrand"
+  },
+  {
+    "value": "lane",
+    "label": "Parkstreifen auf einer Straße"
+  },
+  {
+    "value": "layby",
+    "label": "Layby - Rastplatz"
+  },
+  {
+    "value": "underground",
+    "label": "Tiefgarage"
+  },
+  {
+    "value": "multi-storey",
+    "label": "Parkhaus mit mehreren Parkebenen"
+  },
+  {
+    "value": "rooftop",
+    "label": "Parken in einer Ebene auf einem Dach"
+  },
+  {
+    "value": "carports",
+    "label": "Carport"
+  },
+  {
+    "value": "garage_boxes",
+    "label": "Garage Boxes - Einstöckige Gebäude für einzelne Autos"
+  },
+  {
+    "value": "sheds",
+    "label": "Sheds - Private Bauten für Fahrzeuge"
+  }
+]

@@ -91,6 +91,22 @@ export const config = {
           "webUrls": [{}]
         }
       },
+      open_street_map: {
+        component: 'field-custom-open-street-map',
+        inputType: 'OpenStreetMapInput',
+        defaultValue: {
+          "capacity": 0,
+          "capacityCharging": "",
+          "capacityDisabled": "",
+          "fee": "",
+          "lit": "",
+          "parking": "",
+          "shelter": "",
+          "surface": "",
+          "utilization": "",
+          "website": ""
+        }
+      },
       webUrls: {
         component: 'field-generic-list',
         inputType: 'WebUrlInput',

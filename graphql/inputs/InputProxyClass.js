@@ -11,6 +11,7 @@ import LunchInput from './LunchInput'
 import LunchOfferInput from './LunchOfferInput'
 import MediaContentInput from './MediaContentInput'
 import OpeningHourInput from './OpeningHourInput'
+import OpenStreetMapInput from './OpenStreetMapInput'
 import OperatingCompanyInput from './OperatingCompanyInput'
 import PriceInput from './PriceInput'
 import RegionInput from './RegionInput'
@@ -31,6 +32,7 @@ const classes = {
     LunchOfferInput,
     MediaContentInput,
     OpeningHourInput,
+    OpenStreetMapInput,
     OperatingCompanyInput,
     PriceInput,
     RegionInput,

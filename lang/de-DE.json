@@ -70,6 +70,7 @@
           "address": "Adresse",
           "openingHours": "Öffnungszeiten",
           "contact": "Kontakt",
+          "openStreetMap": "Open Street Map Felder",
           "webUrls": "Links",
           "priceInformations": "Preisinformationen",
           "operatingCompany": "Betreiber",
@@ -110,6 +111,18 @@
             "email": "E-Mail",
             "phone": "Telefon",
             "fax": "Fax"
+          },
+          "openStreetMap": {
+            "capacity": "Anzahl Stellplätze",
+            "capacityCharging": "Anzahl Stellplätze mit Lademöglichkeit",
+            "capacityDisabled": "Anzahl Behindertenparkplätze",
+            "fee": "Gebühren",
+            "lit": "Beleuchtung",
+            "parking": "Parkplatz",
+            "shelter": "Überdachung",
+            "surface": "Oberfläche",
+            "utilization": "Auslastung",
+            "website": "Webseite"
           },
           "webUrl": {
             "url": "URL",
