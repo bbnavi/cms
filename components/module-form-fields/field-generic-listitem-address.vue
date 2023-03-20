@@ -3,28 +3,24 @@
     <div class="grid flex-1 grid-cols-12 gap-4">
       <div class="col-span-6">
         <form-input-text
-          v-if="showField('addition')"
           v-model="entry.addition"
           :label="$t('modules.point_of_interest.form.labels.addition')"
         />
       </div>
       <div class="col-span-6">
         <form-input-text
-          v-if="showField('street')"
           v-model="entry.street"
           :label="$t('modules.point_of_interest.form.labels.street')"
         />
       </div>
       <div class="col-span-6">
         <form-input-text
-          v-if="showField('zip')"
           v-model="entry.zip"
           :label="$t('modules.point_of_interest.form.labels.zip')"
         />
       </div>
       <div class="col-span-6">
         <form-input-text
-          v-if="showField('city')"
           v-model="entry.city"
           :label="$t('modules.point_of_interest.form.labels.city')"
         />
