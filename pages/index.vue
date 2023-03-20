@@ -19,6 +19,11 @@
 <script setup>
 import { useUserStore } from '@/stores/user'
 const { activeModules } = useUserStore()
+const { $i18n } = useNuxtApp()
+
+useHead({
+  title: $i18n.t('common.pageTitle.pageDashboard')
+})
 </script>
 
 <style lang="scss">

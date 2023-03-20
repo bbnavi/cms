@@ -1,8 +1,4 @@
 <template>
-  <h2 class="mb-8 text-3xl">
-    {{ isNew ? $t('common.headlines.newEntry') : $t('common.headlines.editEntry') }}
-  </h2>
-
   <form @submit.prevent="submitForm">
     <module-form-field
       v-for="(options, name) in formFields"

@@ -13,9 +13,14 @@
       "cancel": "Abbrechen",
       "save": "Speichern"
     },
-    "headlines": {
-      "newEntry": "Neuer Eintrag",
-      "editEntry": "Eintrag bearbeiten"
+    "moduleAction": {
+      "index": "Übersicht",
+      "new": "Neuer Eintrag",
+      "edit": "Eintrag bearbeiten"
+    },
+    "pageTitle": {
+      "pageDashboard": "Dashboard",
+      "pageLogin": "Login"
     },
     "dataTable": {
       "header": {

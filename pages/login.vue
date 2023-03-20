@@ -51,7 +51,13 @@
 </template>
 
 <script setup>
-definePageMeta({ 
+const { $i18n } = useNuxtApp()
+
+useHead({
+  title: $i18n.t('common.pageTitle.pageLogin')
+})
+
+definePageMeta({
   auth: false,
   layout: 'none'
 })
