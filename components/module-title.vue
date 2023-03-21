@@ -1,10 +1,10 @@
 <template>
   <div class="mb-8">
-    <div>
-      {{ $t(`common.moduleAction.${moduleAction}`) }}
-    </div>
-    <h1 class="text-4xl">
+    <nuxt-link :to="{ name: moduleIndexRouteName, params: moduleIndexParams }">
       {{ module.label }}
+    </nuxt-link>
+    <h1 class="text-4xl">
+      {{ $t(`common.moduleAction.${moduleAction}`) }}
     </h1>
   </div>
 </template>
@@ -18,6 +18,8 @@ const { activeModules } = useUserStore()
 let [moduleType, moduleAction] = routeName.split('-')
 const moduleName = params.category_id ? `${params.module}_category_${params.category_id}` : params.module
 const module = activeModules.find((module) => module.name === moduleName)
+const moduleIndexRouteName = `${moduleType}-index`
+const moduleIndexParams = Object.fromEntries(Object.entries(params).filter(([key]) => key !== 'id'))
 const pageTitle = computed(() => {
   if ([ 'category', 'module' ].includes(moduleType)) {
     return [

@@ -1,13 +1,31 @@
 <template>
-  <div v-if="entries.length === 0">
-    {{ $t('common.msg.noEntries') }}
-  </div>
+  <div>
+    <div class="flex items-center justify-between gap-4 mb-8">
+      <input
+        v-model="searchValue"
+        :placeholder="$t('common.placeholder.search')"
+        type="search"
+        class="px-3 py-2 border rounded outline-none w-72"
+      />
 
-  <div v-else="entries.length">
+      <ui-button
+        :to="{ name: params.category_id ? 'category-new' : 'module-new', params }"
+        type="button"
+      >
+        <ui-icon icon="plus" />
+        <span>{{  $t('common.buttons.newEntry') }}</span>
+      </ui-button>
+    </div>
+
     <Vue3EasyDataTable
+      ref="dataTable"
       :headers="headers"
       :items="items"
       :search-value="searchValue"
+      :empty-message="$t('common.msg.noEntries')"
+      :rows-per-page-message="$t('common.msg.rowsPerPage')"
+      :rows-of-page-separatorMessage="$t('common.msg.rowsOfPageSeparator')"
+      :hide-footer="clientItemsLength === 0"
     >
       <template #item-name="{ name, id }">
         <nuxt-link :to="{ name: categoryId ? 'category-edit' : 'module-edit', params: { module: moduleName, category_id: categoryId, id: id } }">
@@ -38,13 +56,15 @@
       </template>
 
       <template #pagination="{ prevPage, nextPage, isFirstPage, isLastPage }">
-        <button :disabled="isFirstPage" @click="prevPage">
-          <ui-icon icon="arrow-left" />
-        </button>
+        <div class="flex gap-1 ml-6">
+          <button :disabled="isFirstPage" class="disabled:text-gray-200" @click="prevPage">
+            <ui-icon icon="arrow-left" />
+          </button>
 
-        <button :disabled="isLastPage" @click="nextPage">
-          <ui-icon icon="arrow-right" />
-        </button>
+          <button :disabled="isLastPage" class="disabled:text-gray-200" @click="nextPage">
+            <ui-icon icon="arrow-right" />
+          </button>
+        </div>
       </template>
     </Vue3EasyDataTable>
   </div>
@@ -59,13 +79,8 @@ import Vue3EasyDataTable from 'vue3-easy-data-table';
 const { params } = useRoute()
 const { $i18n } = useNuxtApp()
 
-const props = defineProps({
-  searchValue: {
-    type: String,
-    required: true
-  }
-})
-
+const dataTable = ref()
+const searchValue = ref('')
 const categoryId = params.category_id
 const moduleName = params.module
 const moduleConfig = getConfig(moduleName)
@@ -90,6 +105,7 @@ const query = module.default
 let entries = reactive([])
 const { data } = await useAsyncQuery(query, { categoryIds })
 entries = data?.value[moduleConfig.graphQL.queryRootIndex] || []
+const clientItemsLength = computed(() => dataTable.value?.clientItemsLength)
 
 const items = computed(() => {
   return entries.map((entry) => {
@@ -110,8 +126,6 @@ const items = computed(() => {
 .vue3-easy-data-table {
   position: relative;
   box-sizing: border-box;
-
-
 
   table {
     @apply w-full;
@@ -185,6 +199,12 @@ const items = computed(() => {
         }
       }
     }
+  }
+
+  .vue3-easy-data-table__message {
+    @apply flex flex-col items-center justify-center;
+    @apply h-full py-20;
+    @apply text-gray-500;
   }
 
   // TABLE: Content

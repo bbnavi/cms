@@ -1,7 +1,9 @@
 {
   "common": {
     "msg": {
-      "noEntries": "Keine Einträge vorhanden"
+      "noEntries": "Keine Einträge vorhanden",
+      "rowsPerPage": "Einträge pro Seite",
+      "rowsOfPageSeparator": "von"
     },
     "buttons": {
       "newEntry": "Neuer Eintrag",
