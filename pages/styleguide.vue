@@ -53,6 +53,10 @@
       </div>
     </form-group>
 
+    <div class="text-black bg-green-200">
+      <ui-switch v-model="form.active" />
+    </div>
+
     <div class="space-y-3">
       <div class="flex gap-2">
         <ui-button action="primary">Primary</ui-button>
@@ -86,7 +90,7 @@ const form = reactive({
   description: '',
   body: '<p>Hallo Welt!</p>',
   category: 'Germany',
-  active: null,
+  active: false,
   latitude: 51.165691,
   longitude: 10.451526
 })
