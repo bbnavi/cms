@@ -22,6 +22,7 @@
     >
       <ui-button
         type="button"
+        action="secondary"
         @click="addEntry"
       >
         {{ $t('common.buttons.addEntry') }}

@@ -53,6 +53,29 @@
       </div>
     </form-group>
 
+    <div class="space-y-3">
+      <div class="flex gap-2">
+        <ui-button action="primary">Primary</ui-button>
+        <ui-button action="primary" disabled="true">Primary Disabled</ui-button>
+      </div>
+      <div class="flex gap-2">
+        <ui-button action="secondary">Secondary</ui-button>
+        <ui-button action="secondary" disabled="true">Secondary</ui-button>
+      </div>
+      <div class="flex gap-2">
+        <ui-button action="primary-outline">Primary Outline</ui-button>
+        <ui-button action="primary-outline" disabled="true">Primary Outline Disabled</ui-button>
+      </div>
+      <div class="flex gap-2">
+        <ui-button action="secondary-outline">Secondary</ui-button>
+        <ui-button action="secondary-outline" disabled="true">Secondary Disabled</ui-button>
+      </div>
+      <div class="flex gap-2">
+        <ui-button action="tertiary">Tertiary</ui-button>
+        <ui-button action="tertiary" disabled="true">Tertiary</ui-button>
+      </div>
+    </div>
+
     <pre>{{ form }}</pre>
   </div>
 </template>

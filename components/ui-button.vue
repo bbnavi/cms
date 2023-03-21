@@ -38,7 +38,7 @@ export default {
     action: {
       type: String,
       default: 'primary',
-      validator: (value) => ['primary', 'secondary', 'tertiary'].includes(value),
+      validator: (value) => ['primary', 'secondary', 'secondary-outline'].includes(value),
     },
     disabled: {
       type: Boolean,
@@ -102,7 +102,7 @@ export default {
   @apply transition-colors duration-200 ease-in-out;
 
   &.disabled {
-    @apply cursor-not-allowed text-opacity-30;
+    @apply cursor-not-allowed;
   }
 
   &.loading {
@@ -117,23 +117,59 @@ export default {
     @apply bg-brand border border-brand text-white;
 
     &:hover:not(.disabled, .loading) {
-      @apply bg-white border-brand text-brand;
+      @apply bg-red-600 border-red-600 text-white;
+    }
+
+    &.disabled {
+      @apply bg-red-200 border-red-200 text-white;
     }
   }
 
   &--secondary {
-    @apply bg-white border border-brand text-brand;
+    @apply bg-gray-100 border border-gray-100 text-gray-800;
 
     &:hover:not(.disabled, .loading) {
-      @apply bg-brand border-brand text-white;
+      @apply bg-gray-100 border-gray-100 text-black;
+    }
+
+    &.disabled {
+      @apply bg-gray-100 border-gray-100 text-gray-400;
+    }
+  }
+
+  &--primary-outline {
+    @apply bg-transparent border border-red-600 text-red-600;
+
+    &:hover:not(.disabled, .loading) {
+      @apply bg-transparent border-red-600 text-red-600;
+    }
+
+    &.disabled {
+      @apply bg-transparent border-red-200 text-red-200;
+    }
+  }
+
+  &--secondary-outline {
+    @apply bg-transparent text-gray-800 border border-gray-800;
+
+    &:hover:not(.disabled, .loading) {
+      @apply text-black;
+    }
+
+    &.disabled {
+      @apply bg-transparent border-gray-100 text-gray-400;
     }
   }
 
   &--tertiary {
-    @apply bg-transparent text-black border border-black;
+    @apply bg-transparent text-gray-800 border border-transparent;
 
     &:hover:not(.disabled, .loading) {
-      @apply bg-gray-100;
+      @apply text-black;
+    }
+
+    &.disabled {
+      @apply text-gray-400;
     }
   }
 
