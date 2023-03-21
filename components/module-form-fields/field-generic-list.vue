@@ -25,7 +25,10 @@
         action="secondary"
         @click="addEntry"
       >
-        {{ $t('common.buttons.addEntry') }}
+        <ui-icon icon="plus" />
+        <span>
+          {{ $t('common.buttons.addEntry') }}
+        </span>
       </ui-button>
     </div>
   </div>

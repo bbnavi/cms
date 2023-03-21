@@ -7,10 +7,12 @@
     />
 
     <ui-button
+      v-if="removable"
       type="button"
+      icon-only
       @click="emit('update:entry', null)"
     >
-      {{ $t('common.buttons.remove') }}
+      <ui-icon icon="delete" />
     </ui-button>
   </div>
 </template>
@@ -27,6 +29,11 @@ const props = defineProps({
   entry: {
     type: Object,
     required: true
+  },
+  removable: {
+    type: Boolean,
+    required: false,
+    default: false
   }
 })
 

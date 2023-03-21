@@ -43,9 +43,10 @@
     <ui-button
       v-if="removable"
       type="button"
+      icon-only
       @click="emit('update:entry', null)"
     >
-      {{ $t('common.buttons.remove') }}
+      <ui-icon icon="delete" />
     </ui-button>
   </div>
 </template>

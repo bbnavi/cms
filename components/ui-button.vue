@@ -194,7 +194,7 @@ export default {
   }
 
   &--icon-only {
-    @apply rounded-full p-0 aspect-square overflow-hidden;
+    @apply rounded-full aspect-square overflow-hidden p-0 flex items-center justify-center;
   }
 }
 </style>
