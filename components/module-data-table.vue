@@ -33,8 +33,12 @@
         </nuxt-link>
       </template>
 
-      <template #item-visible="{ visible }">
-        {{ visible }}
+      <template #item-visible="{ id, visible }">
+        <module-entry-toggle-visibility
+          :id="id"
+          :recordType="moduleConfig.recordType"
+          :visible="visible"
+        />
       </template>
 
       <template #item-createdAt="{ createdAt }">

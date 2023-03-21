@@ -3,6 +3,7 @@ import InputProxyClass from '@/graphql/inputs/InputProxyClass'
 export const config = {
   point_of_interest: {
     name: 'Orte',
+    recordType: 'PointOfInterest',
     graphQL: {
       queryRootIndex: 'pointsOfInterest',
       queryRootEntry: 'pointOfInterest'
@@ -133,6 +134,7 @@ export const config = {
 
   news_item: {
     name: 'Nachrichten',
+    recordType: 'NewsItem',
     graphQL: {
       queryRootIndex: 'newsItems',
       queryRootEntry: 'newsItem'
