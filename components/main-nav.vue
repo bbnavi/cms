@@ -14,7 +14,10 @@
       >
         <nuxt-link :to="{ name: routeName, params: params, query: query }">
           <ui-icon :icon="icon" :fallback="iconFallback" />
-          <span>
+          <span
+            :title="label"
+            class="truncate whitespace-nowrap"
+          >
             {{ label }}
           </span>
         </nuxt-link>
