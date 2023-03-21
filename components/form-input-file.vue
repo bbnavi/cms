@@ -8,7 +8,7 @@
       <input
         :required="required"
         type="file"
-        class="px-4 py-1.5 text-base border border-gray-200 rounded"
+        class="px-2 py-1.5 text-base border border-gray-200 rounded"
         multiple="false"
         @change="handleInput"
       />
