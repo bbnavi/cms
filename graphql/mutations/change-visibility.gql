@@ -1,5 +1,3 @@
-# https://staging.cms.bbnavi.de/visibility/PointOfInterest/523913/false
-
 mutation (
   $id: ID!,
   $recordType: String!,

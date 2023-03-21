@@ -20,7 +20,7 @@
     <Vue3EasyDataTable
       ref="dataTable"
       :headers="headers"
-      :items="items"
+      :items="nonDestroyedItems"
       :search-value="searchValue"
       :empty-message="$t('common.msg.noEntries')"
       :rows-per-page-message="$t('common.msg.rowsPerPage')"
@@ -53,7 +53,7 @@
             <ui-icon icon="edit" />
           </nuxt-link>
 
-          <button>
+          <button @click="deleteRecord(id)">
             <ui-icon icon="delete" />
           </button>
         </div>
@@ -79,6 +79,7 @@ import { storeToRefs } from 'pinia'
 import { useCategoryStore } from '@/stores/category'
 import { getConfig } from '@/config/module-settings'
 import Vue3EasyDataTable from 'vue3-easy-data-table';
+import destroyRecordQuery from '@/graphql/mutations/destroy-record.gql'
 
 const { params } = useRoute()
 const { $i18n } = useNuxtApp()
@@ -111,17 +112,40 @@ const { data } = await useAsyncQuery(query, { categoryIds })
 entries = data?.value[moduleConfig.graphQL.queryRootIndex] || []
 const clientItemsLength = computed(() => dataTable.value?.clientItemsLength)
 
-const items = computed(() => {
-  return entries.map((entry) => {
-    return {
-      id: entry.id,
-      name: entry.name,
-      dataProvider: entry.dataProvider?.name,
-      createdAt: entry.createdAt,
-      visible: entry.visible
-    }
-  })
+const items = reactive(entries.map((entry) => {
+  return {
+    id: entry.id,
+    name: entry.name,
+    dataProvider: entry.dataProvider?.name,
+    createdAt: entry.createdAt,
+    visible: entry.visible,
+    destroyed: false
+  }
+}))
+
+const nonDestroyedItems = computed(() => {
+  return items.filter(item => !item.destroyed)
 })
+
+const deleteRecord = async (id) => {
+  const entry = items.find(entry => entry.id === id)
+  const message = $i18n.t('common.msg.deleteEntry', { entryName: entry.name })
+  const confirm = window.confirm(message)
+
+  if (confirm) {
+    const variables = reactive({
+      id: id,
+      recordType: moduleConfig.recordType
+    })
+
+    const { mutate:destroyRecord } = useMutation(destroyRecordQuery, variables)
+    const { data } = await destroyRecord(variables)
+
+    if (data?.destroyRecord?.statusCode === 200) {
+      entry.destroyed = true
+    }
+  }
+}
 </script>
 
 <style lang="scss">

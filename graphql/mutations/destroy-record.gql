@@ -1,0 +1,13 @@
+mutation (
+  $id: ID!,
+  $recordType: String!
+) {
+  destroyRecord(
+    id: $id,
+    recordType: $recordType
+  ) {
+    id
+    status
+    statusCode
+  }
+}

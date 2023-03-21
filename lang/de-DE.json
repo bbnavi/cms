@@ -2,6 +2,7 @@
   "common": {
     "msg": {
       "noEntries": "Keine Einträge vorhanden",
+      "deleteEntry": "%{entryName} wirklich löschen?",
       "rowsPerPage": "Einträge pro Seite",
       "rowsOfPageSeparator": "von"
     },
