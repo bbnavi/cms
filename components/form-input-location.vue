@@ -1,8 +1,9 @@
 <template>
   <l-map
     ref="map"
-    :zoom="12"
     v-model:center="coordinates"
+    :zoom="12"
+    :options="mapOptions"
   >
     <l-tile-layer
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -33,6 +34,11 @@ const props = defineProps({
     required: true
   }
 })
+
+const mapOptions = {
+  scrollWheelZoom: false,
+  touchZoom: false
+}
 
 const coordinates = computed({
   get: () => [props.latitute, props.longitude],
