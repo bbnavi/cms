@@ -11,7 +11,7 @@
       @update:modelValue="(value) => handleInput({ name, value })"
     />
 
-    <div class="flex gap-6 mt-12">
+    <div class="flex gap-4 pt-8 mt-12 border-t">
       <ui-button
         :to="{ name: 'module-index', params: { module: props.moduleName }}"
         type="button"

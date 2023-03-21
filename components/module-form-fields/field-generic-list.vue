@@ -1,10 +1,12 @@
 <template>
-  <div class="form-field field-generic-list">
-    <h3>
-      {{ $t(`${options.listTitle}`) }}
-    </h3>
+  <div class="mt-10 form-field field-generic-list">
+    <div class="flex items-center justify-between">
+      <h3>
+        {{ $t(`${options.listTitle}`) }}
+      </h3>
+    </div>
 
-    <div class="space-y-2">
+    <div class="space-y-3">
       <component
         v-for="(entry, listIndex) in modelValue"
         :key="listIndex"
@@ -17,10 +19,32 @@
     </div>
 
     <div
-      v-if="options.listMaxItems === undefined || modelValue.length < options.listMaxItems"
-      class="mt-2"
+      v-show="modelValue.length === 0"
+      class="flex flex-col items-center justify-center"
+    >
+      <p class="pb-6 text-center text-gray-400">
+        {{ $t('common.msg.noEntries') }}
+      </p>
+
+      <ui-button
+        v-if="options.listMaxItems === undefined || modelValue.length < options.listMaxItems"
+        type="button"
+        action="secondary"
+        @click="addEntry"
+      >
+        <ui-icon icon="plus" />
+        <span>
+          {{ $t('common.buttons.addEntry') }}
+        </span>
+      </ui-button>
+    </div>
+
+    <div
+      v-show="modelValue.length > 0"
+      class="mt-4"
     >
       <ui-button
+        v-if="options.listMaxItems === undefined || modelValue.length < options.listMaxItems"
         type="button"
         action="secondary"
         @click="addEntry"

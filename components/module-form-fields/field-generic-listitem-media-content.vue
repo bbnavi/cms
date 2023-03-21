@@ -1,54 +1,56 @@
 <template>
-  <div class="flex items-start justify-between gap-4 p-4 border">
-    <div class="grid flex-1 grid-cols-12 gap-4">
-      <div
-        v-show="!sourceUrl"
-        class="col-span-12"
-      >
-        <form-input-file
-          v-model="uploadData"
-          :label="$t('modules.point_of_interest.form.labels.mediaContent.file')"
-        />
+  <field-generic-listitem>
+    <div class="flex items-start justify-between gap-4">
+      <div class="grid flex-1 grid-cols-12 gap-4">
+        <div
+          v-show="!sourceUrl"
+          class="col-span-12"
+        >
+          <form-input-file
+            v-model="uploadData"
+            :label="$t('modules.point_of_interest.form.labels.mediaContent.file')"
+          />
+        </div>
+        <div class="col-span-12">
+          <form-input-text
+            v-model="sourceUrl"
+            :label="$t('modules.point_of_interest.form.labels.mediaContent.sourceUrl')"
+            :readonly="!!uploadData"
+          />
+        </div>
+        <div class="col-span-12">
+          <form-input-text
+            v-model="entry.captionText"
+            :label="$t('modules.point_of_interest.form.labels.mediaContent.captionText')"
+            required
+          />
+        </div>
+        <div class="col-span-6">
+          <form-input-select
+            v-model="entry.contentType"
+            :label="$t('modules.point_of_interest.form.labels.mediaContent.contentType')"
+            :options="contentTypes"
+          />
+        </div>
+        <div class="col-span-6">
+          <form-input-text
+            v-model="entry.copyright"
+            :label="$t('modules.point_of_interest.form.labels.mediaContent.copyright')"
+            required
+          />
+        </div>
       </div>
-      <div class="col-span-12">
-        <form-input-text
-          v-model="sourceUrl"
-          :label="$t('modules.point_of_interest.form.labels.mediaContent.sourceUrl')"
-          :readonly="!!uploadData"
-        />
-      </div>
-      <div class="col-span-12">
-        <form-input-text
-          v-model="entry.captionText"
-          :label="$t('modules.point_of_interest.form.labels.mediaContent.captionText')"
-          required
-        />
-      </div>
-      <div class="col-span-6">
-        <form-input-select
-          v-model="entry.contentType"
-          :label="$t('modules.point_of_interest.form.labels.mediaContent.contentType')"
-          :options="contentTypes"
-        />
-      </div>
-      <div class="col-span-6">
-        <form-input-text
-          v-model="entry.copyright"
-          :label="$t('modules.point_of_interest.form.labels.mediaContent.copyright')"
-          required
-        />
-      </div>
-    </div>
 
-    <ui-button
-      v-if="removable"
-      type="button"
-      icon-only
-      @click="emit('update:entry', null)"
-    >
-      <ui-icon icon="delete" />
-    </ui-button>
-  </div>
+      <ui-button
+        v-if="removable"
+        type="button"
+        icon-only
+        @click="emit('update:entry', null)"
+      >
+        <ui-icon icon="delete" />
+      </ui-button>
+    </div>
+  </field-generic-listitem>
 </template>
 
 <script setup>

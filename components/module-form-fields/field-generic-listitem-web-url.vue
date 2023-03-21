@@ -1,31 +1,33 @@
 <template>
-  <div class="flex items-start justify-between gap-4 p-4 border">
-    <div class="grid flex-1 grid-cols-12 gap-4">
-      <div class="col-span-6">
-        <form-input-text
-          v-model="entry.url"
-          :label="$t('modules.point_of_interest.form.labels.webUrl.url')"
-          required
-        />
+  <field-generic-listitem>
+    <div class="flex items-start justify-between gap-4">
+      <div class="grid flex-1 grid-cols-12 gap-4">
+        <div class="col-span-6">
+          <form-input-text
+            v-model="entry.url"
+            :label="$t('modules.point_of_interest.form.labels.webUrl.url')"
+            required
+          />
+        </div>
+        <div class="col-span-6">
+          <form-input-text
+            v-model="entry.description"
+            :label="$t('modules.point_of_interest.form.labels.webUrl.description')"
+            required
+          />
+        </div>
       </div>
-      <div class="col-span-6">
-        <form-input-text
-          v-model="entry.description"
-          :label="$t('modules.point_of_interest.form.labels.webUrl.description')"
-          required
-        />
-      </div>
-    </div>
 
-    <ui-button
-      v-if="removable"
-      type="button"
-      icon-only
-      @click="emit('update:entry', null)"
-    >
-      <ui-icon icon="delete" />
-    </ui-button>
-  </div>
+      <ui-button
+        v-if="removable"
+        type="button"
+        icon-only
+        @click="emit('update:entry', null)"
+      >
+        <ui-icon icon="delete" />
+      </ui-button>
+    </div>
+  </field-generic-listitem>
 </template>
 
 <script setup>
@@ -42,8 +44,4 @@ const props = defineProps({
     default: false
   }
 })
-
-const removeEntry = () => {
-  emit('update:entry', null)
-}
 </script>

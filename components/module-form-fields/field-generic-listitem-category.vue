@@ -1,20 +1,22 @@
 <template>
-  <div class="flex items-center justify-between gap-4 p-4 border">
-    <form-input-select
-      v-model="inputValue"
-      :options="selectOptions"
-      class="flex-1"
-    />
+  <field-generic-listitem>
+    <div class="flex items-center justify-between gap-4">
+      <form-input-select
+        v-model="inputValue"
+        :options="selectOptions"
+        class="flex-1"
+      />
 
-    <ui-button
-      v-if="removable"
-      type="button"
-      icon-only
-      @click="emit('update:entry', null)"
-    >
-      <ui-icon icon="delete" />
-    </ui-button>
-  </div>
+      <ui-button
+        v-if="removable"
+        type="button"
+        icon-only
+        @click="emit('update:entry', null)"
+      >
+        <ui-icon icon="delete" />
+      </ui-button>
+    </div>
+  </field-generic-listitem>
 </template>
 
 <script setup>
