@@ -6,7 +6,7 @@
   <main-sidebar />
 
   <div class="container mx-auto">
-    <div class="flex-grow py-8 pb-0 xl:px-8">
+    <div class="flex-grow px-4 py-8 xl:px-8">
       <slot />
     </div>
   </div>

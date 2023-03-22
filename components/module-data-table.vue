@@ -245,7 +245,7 @@ const deleteRecord = async (id) => {
 
   // TABLE: Pagination
   .vue3-easy-data-table__footer {
-    @apply flex flex-row py-6;
+    @apply flex flex-row pt-6;
     @apply text-sm;
 
     .pagination__items-index {
