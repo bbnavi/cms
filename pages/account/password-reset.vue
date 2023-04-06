@@ -51,7 +51,10 @@
               />
             </div>
 
-            <ui-button type="submit">
+            <ui-button
+              :disabled="!email"
+              type="submit"
+            >
               {{ $t('common.buttons.submit') }}
             </ui-button>
           </form>
