@@ -11,65 +11,105 @@
             v-model="inputValue.capacity"
             type="number"
             :label="$t('modules.point_of_interest.form.labels.openStreetMap.capacity')"
-          />
+          >
+            <template #description>
+              Möglicher Wert: Zahl <a target="_blank" href="https://wiki.openstreetmap.org/wiki/DE:Key:capacity">https://wiki.openstreetmap.org/wiki/DE:Key:capacity</a>
+            </template>
+          </form-input-text>
         </div>
         <div v-if="showField('capacityCharging')" class="col-span-6">
           <form-input-text
             v-model="inputValue.capacityCharging"
             :label="$t('modules.point_of_interest.form.labels.openStreetMap.capacityCharging')"
-          />
+          >
+            <template #description>
+              Möglicher Wert: yes|no|Zahl <a target="_blank" href="https://wiki.openstreetmap.org/wiki/DE:Key:capacity:charging">https://wiki.openstreetmap.org/wiki/DE:Key:capacity:charging</a>
+            </template>
+          </form-input-text>
         </div>
         <div v-if="showField('capacityDisabled')" class="col-span-6">
           <form-input-text
             v-model="inputValue.capacityDisabled"
             :label="$t('modules.point_of_interest.form.labels.openStreetMap.capacityDisabled')"
-          />
+          >
+            <template #description>
+              Möglicher Wert: yes|no|Zahl <a target="_blank" href="https://wiki.openstreetmap.org/wiki/DE:Key:capacity:disabled">https://wiki.openstreetmap.org/wiki/DE:Key:capacity:disabled</a>
+            </template>
+          </form-input-text>
         </div>
         <div v-if="showField('fee')" class="col-span-6">
           <form-input-select
             v-model="inputValue.fee"
             :label="$t('modules.point_of_interest.form.labels.openStreetMap.fee')"
             :options="optionsYesNo"
-          />
+          >
+            <template #description>
+              Möglicher Wert: yes|no <a target="_blank" href="https://wiki.openstreetmap.org/wiki/DE:Key:fee">https://wiki.openstreetmap.org/wiki/DE:Key:fee</a>
+            </template>
+          </form-input-select>
         </div>
         <div v-if="showField('lit')" class="col-span-6">
           <form-input-select
             v-model="inputValue.lit"
             :label="$t('modules.point_of_interest.form.labels.openStreetMap.lit')"
             :options="optionsYesNo"
-          />
+          >
+            <template #description>
+              Möglicher Wert: yes|no <a target="_blank" href="https://wiki.openstreetmap.org/wiki/DE:Key:lit">https://wiki.openstreetmap.org/wiki/DE:Key:lit</a>
+            </template>
+          </form-input-select>
         </div>
         <div v-if="showField('parking')" class="col-span-6">
           <form-input-select
             v-model="inputValue.parking"
             :label="$t('modules.point_of_interest.form.labels.openStreetMap.parking')"
             :options="optionsParking"
-          />
+          >
+            <template #description>
+              Möglicher Wert: Beschreibung <a target="_blank" href="https://wiki.openstreetmap.org/wiki/DE:Key:parking">https://wiki.openstreetmap.org/wiki/DE:Key:parking</a>
+            </template>
+          </form-input-select>
         </div>
         <div v-if="showField('shelter')" class="col-span-6">
           <form-input-select
             v-model="inputValue.shelter"
             :label="$t('modules.point_of_interest.form.labels.openStreetMap.shelter')"
             :options="optionsYesNo"
-          />
+          >
+            <template #description>
+              Möglicher Wert: yes|no <a target="_blank" href="https://wiki.openstreetmap.org/wiki/DE:Key:shelter">https://wiki.openstreetmap.org/wiki/DE:Key:shelter</a>
+            </template>
+          </form-input-select>
         </div>
         <div v-if="showField('surface')" class="col-span-6">
           <form-input-text
             v-model="inputValue.surface"
             :label="$t('modules.point_of_interest.form.labels.openStreetMap.surface')"
-          />
+          >
+            <template #description>
+              Möglicher Wert: Beschreibung <a target="_blank" href="https://wiki.openstreetmap.org/wiki/DE:Key:surface">https://wiki.openstreetmap.org/wiki/DE:Key:surface</a>
+            </template>
+          </form-input-text>
         </div>
         <div v-if="showField('utilization')" class="col-span-6">
           <form-input-text
             v-model="inputValue.utilization"
             :label="$t('modules.point_of_interest.form.labels.openStreetMap.utilization')"
-          />
+          >
+            <template #description>
+              Möglicher Wert: Beschreibung, "häufig bereits morgens überlastet"; "nur selten ausgelastet" <a target="_blank" href="https://wiki.openstreetmap.org/wiki/DE:Key:utilization">https://wiki.openstreetmap.org/wiki/DE:Key:utilization</a>
+            </template>
+          </form-input-text>
         </div>
         <div v-if="showField('website')" class="col-span-6">
           <form-input-text
             v-model="inputValue.website"
             :label="$t('modules.point_of_interest.form.labels.openStreetMap.website')"
-          />
+          >
+            <template #description>
+              Möglicher Wert: Beschreibung <a target="_blank" href="https://wiki.openstreetmap.org/wiki/DE:Key:website">https://wiki.openstreetmap.org/wiki/DE:Key:website</a>
+            </template>
+          </form-input-text>
         </div>
       </div>
     </div>

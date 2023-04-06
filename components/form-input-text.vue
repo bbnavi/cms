@@ -14,11 +14,16 @@
         :required="required"
         class="px-4 py-2 text-base border border-gray-200 rounded"
       />
+
+      <div v-if="!!slots.description" class="mt-1 text-xs opacity-50">
+        <slot name="description" />
+      </div>
     </form-label>
   </form-group>
 </template>
 
 <script setup>
+const slots = useSlots()
 const emit = defineEmits(['update:modelValue'])
 
 const props = defineProps({

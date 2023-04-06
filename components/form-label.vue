@@ -23,7 +23,7 @@ const itemClasses = computed(() => {
 <style lang="scss">
 .form-label {
   @apply flex flex-col;
-  @apply text-gray-600;
+  @apply text-gray-900;
 
   &--required > span::after {
     content: '*';

@@ -22,11 +22,16 @@
           {{ option.label }}
         </option>
       </select>
+
+      <div v-if="!!slots.description" class="mt-1 text-xs opacity-50">
+        <slot name="description" />
+      </div>
     </form-label>
   </form-group>
 </template>
 
 <script setup>
+const slots = useSlots()
 const emit = defineEmits(['update:modelValue'])
 
 const props = defineProps({
