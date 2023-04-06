@@ -5,13 +5,25 @@
 
   <ul class="grid grid-cols-1 gap-8 md:grid-cols-2">
     <li
-      v-for="{ label, routeName, params, query } in activeModules"
+      v-for="{ label, routeName, params, query, icon, iconFallback } in activeModules"
       :key="label"
-      class="card"
+      class="flex items-center justify-between card"
     >
-      <nuxt-link :to="{ name: routeName, params: params, query: query }">
-        {{ label }}
+      <nuxt-link
+        :to="{ name: routeName, params: params, query: query }"
+        class="flex items-center justify-center gap-3 text-lg font-bold"
+      >
+        <ui-icon :icon="icon" :fallback="iconFallback" />
+        <span>{{ label }}</span>
       </nuxt-link>
+
+      <ui-button
+        :to="{ name: params.category_id ? 'category-new' : 'module-new', params }"
+        type="button"
+        rounded
+      >
+        <ui-icon icon="plus" />
+      </ui-button>
     </li>
   </ul>
 </template>
@@ -28,7 +40,7 @@ useHead({
 
 <style lang="scss">
 .card {
-  @apply flex flex-row py-10 px-6;
+  @apply flex flex-row py-8 px-6;
   @apply bg-white rounded-lg shadow;
 }
 </style>
