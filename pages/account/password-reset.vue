@@ -19,28 +19,43 @@
           {{ $t('account.passwordReset.title') }}
         </h1>
 
-        <p class="text-sm">
-          {{ $t('account.passwordReset.intro') }}
-        </p>
+        <div v-if="submitted">
+          <p class="mb-8">
+            {{ $t('account.passwordReset.submitted') }}
+          </p>
 
-        <form @submit.prevent="onSubmit" class="flex flex-col items-start gap-6 mt-8">
-          <div class="w-full">
-            <label for="email" class="block mb-1 text-sm">
-              {{ $t('common.labels.email') }}
-            </label>
-            <input
-              id="email"
-              type="email"
-              v-model="email"
-              class="w-full p-2 border rounded"
-              autocomplete="email"
-            />
-          </div>
-
-          <ui-button type="submit">
-            {{ $t('common.buttons.submit') }}
+          <ui-button to="/login">
+            {{ $t('account.passwordReset.btnBackToLogin') }}
           </ui-button>
-        </form>
+        </div>
+
+        <div v-else>
+          <p class="text-sm">
+            {{ $t('account.passwordReset.intro') }}
+          </p>
+
+          <form
+            class="flex flex-col items-start gap-6 mt-8"
+            @submit.prevent="onSubmit"
+          >
+            <div class="w-full">
+              <label for="email" class="block mb-1 text-sm">
+                {{ $t('common.labels.email') }}
+              </label>
+              <input
+                id="email"
+                type="email"
+                v-model="email"
+                class="w-full p-2 border rounded"
+                autocomplete="email"
+              />
+            </div>
+
+            <ui-button type="submit">
+              {{ $t('common.buttons.submit') }}
+            </ui-button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -49,9 +64,24 @@
 <script setup>
 const { $i18n } = useNuxtApp()
 const email = ref('')
+const submitted = ref(false)
 
 const onSubmit = () => {
-  console.log('submit', email.value)
+  const config = useRuntimeConfig()
+
+  fetch(`${config.public.datahubEndpoint}/users/password`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      user: {
+        email: email.value
+      }
+    })
+  }).then(() => {
+    submitted.value = true
+  })
 }
 
 useHead({

@@ -62,11 +62,9 @@
     },
     "passwordReset": {
       "title": "Sie haben Ihr Passwort vergessen?",
-      "intro": "Bitte tragen Sie hier die E-Mail-Adresse ein, die Sie in Ihrem persönlichen Konto angegeben haben. An diese Adresse senden wir Ihnen dann eine E-Mail, die eine spezielle URL enthält, mit der Sie ein neues Passwort für Ihr Konto vergeben können. Bitte folgen Sie dazu einfach dem Link in der E-Mail und ändern Sie Ihr Passwort."
-    },
-    "passwordNew": {
-      "title": "Neues Passwort vergeben",
-      "intro": "Bitte geben Sie hier ein neues Passwort für Ihr Konto ein."
+      "intro": "Bitte tragen Sie hier die E-Mail-Adresse ein, die Sie in Ihrem persönlichen Konto angegeben haben. An diese Adresse senden wir Ihnen dann eine E-Mail, die eine spezielle URL enthält, mit der Sie ein neues Passwort für Ihr Konto vergeben können. Bitte folgen Sie dazu einfach dem Link in der E-Mail und ändern Sie Ihr Passwort.",
+      "submitted": "Wir haben Ihnen eine E-Mail mit einem Link zum Zurücksetzen Ihres Passworts gesendet. Bitte folgen Sie dem Link in der E-Mail, um Ihr Passwort zurückzusetzen.",
+      "btnBackToLogin": "Zurück zum Login"
     }
   },
 
