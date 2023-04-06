@@ -74,9 +74,6 @@ const { signIn } = useSession()
 const email = ref('')
 const password = ref('')
 
-const config = useRuntimeConfig()
-console.log('config.public', config.public)
-
 const onSubmit = async () => {
   const { query } = useRoute()
   const callbackUrl = query.callbackUrl || '/'

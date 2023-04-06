@@ -2,8 +2,6 @@ import WebUrlInput from './WebUrlInput'
 
 class ContactInput {
   constructor(data) {
-    console.log('ContactInput', data)
-
     this.email = data.email
     this.fax = data.fax
     this.firstName = data.firstName

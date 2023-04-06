@@ -81,7 +81,6 @@ if(params.id) {
 
   for (const [name, options] of Object.entries(formFields)) {
     // entry[name] = entry[name] || (options.defaultValue === undefined ? '' : options.defaultValue)
-    console.log('entry[name]', entry[name], options.defaultValue);
     entry[name] = entry[name] || options.defaultValue || ''
   }
 
@@ -116,7 +115,6 @@ const submitForm = async () => {
   const mutationPayload = transformPayload(props.moduleName, entry)
 
   // submit form
-  console.log('sumit form', mutationPayload)
   const { data } = await mutate(mutationPayload)
 
   isLoading.value = false

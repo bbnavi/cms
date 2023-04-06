@@ -51,9 +51,6 @@ export default NuxtAuthHandler({
           const application = data.applications[0]
           const minio = data.minio
 
-          console.log('minio', minio)
-          console.log('session data', data)
-
           if (response.status === 200) {
             return Object.assign(data.user, {
               // save authentication payload on the users image property,
