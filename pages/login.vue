@@ -19,7 +19,7 @@
         <form @submit.prevent="onSubmit" class="flex flex-col items-start gap-6">
           <div class="w-full">
             <label for="email" class="block mb-1 text-sm">
-              E-Mail
+              {{ $t('common.labels.email')  }}
             </label>
             <input
               id="email"
@@ -32,7 +32,7 @@
 
           <div class="w-full">
             <label for="password" class="block mb-1 text-sm">
-              Passwort
+              {{ $t('common.labels.password')  }}
             </label>
             <input
               id="password"
@@ -41,9 +41,17 @@
               class="w-full p-2 border rounded"
               autocomplete="current-password"
             />
+            <nuxt-link
+              to="/account/password-reset"
+              class="block mt-2 text-sm"
+            >
+              {{ $t('account.login.forgotPassword') }}
+            </nuxt-link>
           </div>
 
-          <ui-button type="submit">Anmelden</ui-button>
+          <ui-button type="submit">
+            {{ $t('account.login.submit') }}
+          </ui-button>
         </form>
       </div>
     </div>
@@ -81,10 +89,3 @@ const onSubmit = async () => {
   })
 }
 </script>
-
-<style lang="scss">
-html,
-body {
-  @apply bg-white xl:pl-0;
-}
-</style>
