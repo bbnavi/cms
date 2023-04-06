@@ -38,6 +38,7 @@
           :id="id"
           :recordType="moduleConfig.recordType"
           :visible="visible"
+          :disabled="user.role !== 'admin'"
         />
       </template>
 
@@ -53,7 +54,11 @@
             <ui-icon icon="edit" />
           </nuxt-link>
 
-          <button @click="deleteRecord(id)">
+          <button
+            :disabled="user.role !== 'admin'"
+            :class="{ 'text-gray-200': user.role !== 'admin'}"
+            @click="deleteRecord(id)"
+          >
             <ui-icon icon="delete" />
           </button>
         </div>
@@ -76,6 +81,7 @@
 
 <script setup>
 import { storeToRefs } from 'pinia'
+import { useUserStore } from '@/stores/user'
 import { useCategoryStore } from '@/stores/category'
 import { getConfig } from '@/config/module-settings'
 import Vue3EasyDataTable from 'vue3-easy-data-table';
@@ -97,6 +103,9 @@ const headers = [
   { text: $i18n.t('common.dataTable.header.visible'), value: "visible", sortable: true },
   { text: $i18n.t('common.dataTable.header.actions'), value: "actions" }
 ]
+
+const userStore = useUserStore()
+const { user } = storeToRefs(userStore)
 
 const categoryStore = useCategoryStore()
 await categoryStore.fetchScoped(categoryId)
