@@ -37,6 +37,7 @@ export const useUserStore = defineStore({
           }
 
           this.modules.push({
+            key: moduleName.replace(/(\_\w)/g, (m) => m[1].toUpperCase()),
             name: moduleName,
             icon: moduleIcon,
             iconFallback: moduleIcon,
@@ -50,6 +51,7 @@ export const useUserStore = defineStore({
 
           // module category entries
           this.roles[`${role}_category_ids`] && this.roles[`${role}_category_ids`].map(id => this.modules.push({
+            key: `${moduleName}_category`.replace(/(\_\w)/g, (m) => m[1].toUpperCase()),
             name: `${moduleName}_category_${id}`,
             icon: `modules/${moduleName}_category_${id}`,
             iconFallback: moduleIcon,

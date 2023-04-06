@@ -1,0 +1,6 @@
+query {
+  dashboard {
+    pointOfInterest
+    pointOfInterestCategory
+  }
+}

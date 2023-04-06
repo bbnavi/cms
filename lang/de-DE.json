@@ -1,5 +1,6 @@
 {
   "common": {
+    "entriesCount": "Keine Einträge | 1 Eintrag | {count} Einträge",
     "msg": {
       "noEntries": "Keine Einträge vorhanden",
       "deleteEntry": "%{entryName} wirklich löschen?",
