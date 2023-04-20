@@ -34,7 +34,8 @@
       "pageDashboard": "Dashboard",
       "pageLogin": "Login",
       "pagePasswordReset": "Passwort vergessen",
-      "pagePasswordNew": "Neues Passwort vergeben"
+      "pagePasswordNew": "Neues Passwort vergeben",
+      "pageAccountProfile": "Profil bearbeiten"
     },
     "dataTable": {
       "header": {
@@ -65,6 +66,41 @@
       "intro": "Bitte tragen Sie hier die E-Mail-Adresse ein, die Sie in Ihrem persönlichen Konto angegeben haben. An diese Adresse senden wir Ihnen dann eine E-Mail, die eine spezielle URL enthält, mit der Sie ein neues Passwort für Ihr Konto vergeben können. Bitte folgen Sie dazu einfach dem Link in der E-Mail und ändern Sie Ihr Passwort.",
       "submitted": "Wir haben Ihnen eine E-Mail mit einem Link zum Zurücksetzen Ihres Passworts gesendet. Bitte folgen Sie dem Link in der E-Mail, um Ihr Passwort zurückzusetzen.",
       "btnBackToLogin": "Zurück zum Login"
+    },
+    "profile": {
+      "title": "Profil bearbeiten",
+      "overline": "Account",
+      "form": {
+        "sectionHint": "Diese Daten dienen nur internen Zwecken und werden nicht in der App dargestellt.",
+        "headlines": {
+          "address": "Adresse",
+          "contact": "Ansprechpartner"
+        },
+        "labels": {
+          "name": "Bezeichnung",
+          "description": "Beschreibung",
+          "logo": "Link zum Logo (600 x 100 Pixel)",
+          "logo_description": "Alternativ-Text für das Logo",
+          "address": {
+            "street": "Straße",
+            "addition": "ggf. Adresszusatz",
+            "zip": "PLZ",
+            "city": "Stadt"
+          },
+          "contact": {
+            "firstName": "Vorname",
+            "lastName": "Nachname",
+            "phone": "Telefon",
+            "fax": "Fax",
+            "email": "E-Mail"
+          }
+        },
+        "hints": {
+          "name": "Dieser Text wird auch in der App angezeigt.",
+          "description": "Nur für interne Zwecke",
+          "logo": "Diese Grafik wird über Ihren Beiträgen dargestellt."
+        }
+      }
     }
   },
 

@@ -44,7 +44,12 @@
               class="flex flex-col items-start space-y-2 text-base font-bold"
             >
               <div class="max-w-full overflow-hidden whitespace-nowrap text-ellipsis">
-                {{ data.user.email }}
+                <nuxt-link
+                  to="/account/profile"
+                  class="flex flex-row items-center gap-4"
+                >
+                  {{ data.user.email }}
+                </nuxt-link>
               </div>
               <button @click="signOut">
                 Logout

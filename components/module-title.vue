@@ -1,12 +1,9 @@
 <template>
-  <div class="mb-8">
-    <nuxt-link :to="{ name: moduleIndexRouteName, params: moduleIndexParams }">
-      {{ module.label }}
-    </nuxt-link>
-    <h1 class="text-4xl">
-      {{ $t(`common.moduleAction.${moduleAction}`) }}
-    </h1>
-  </div>
+  <ui-page-title
+    :title="$t(`common.moduleAction.${moduleAction}`)"
+    :overline="module.label"
+    :overline-to="{ name: moduleIndexRouteName, params: moduleIndexParams }"
+  />
 </template>
 
 <script setup>

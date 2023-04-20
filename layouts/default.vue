@@ -9,6 +9,9 @@
     <div class="flex-grow px-4 py-8 xl:px-8">
       <slot />
     </div>
+    <div class="py-10 text-sm text-center">
+      &copy; DigitalAgentur Brandenburg GmbH {{ new Date().getFullYear() }}
+    </div>
   </div>
 </template>
 
