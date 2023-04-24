@@ -1,42 +1,34 @@
-# Nuxt 3 Minimal Starter
+# BBNAVI-CMS
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+BBNAVI-CMS is a simple CMS based on BBNAVI Datahub API to manage the content within the BBNAVI platform, imported through the BBNAVI Datahub API by Dataproviders.
 
-## Setup
-
-Make sure to install the dependencies:
+## Installation
 
 ```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
+$ npm install
 ```
 
-## Development Server
-
-Start the development server on http://localhost:3000
+or using yarn
 
 ```bash
-npm run dev
+$ yarn install
 ```
 
-## Production
 
-Build the application for production:
+### Requirements
+
+- Node 16.13 or higher
+
+## Usage
 
 ```bash
-npm run build
+$ npm run dev
 ```
 
-Locally preview production build:
+or using yarn
 
 ```bash
-npm run preview
+$ yarn dev
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+

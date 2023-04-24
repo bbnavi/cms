@@ -1,4 +1,4 @@
-import { defineStore, storeToRefs } from 'pinia'
+import { defineStore } from 'pinia'
 import { useCategoryStore } from '@/stores/category'
 import { getConfig } from '@/config/module-settings'
 
@@ -15,6 +15,7 @@ export const useUserStore = defineStore({
   },
 
   actions: {
+    // intialize user store with user data and setup module structure
     init (value) {
       const categoryStore = useCategoryStore()
 
@@ -23,7 +24,7 @@ export const useUserStore = defineStore({
       this.roles = value.roles
       this.modules = []
 
-      // setup modules
+      // setup modules with all necessary attributes
       this.roles && Object.keys(this.roles)
         .filter((key) => this.roles[key] === true)
         .map(role => {
@@ -37,8 +38,8 @@ export const useUserStore = defineStore({
           }
 
           this.modules.push({
-            key: moduleName.replace(/(\_\w)/g, (m) => m[1].toUpperCase()),
-            name: moduleName,
+            key: moduleName.replace(/(\_\w)/g, (m) => m[1].toUpperCase()), // moduleName in camelCase
+            name: moduleName, // moduleName in snake_case
             icon: moduleIcon,
             iconFallback: moduleIcon,
             label: moduleConfig.name,
@@ -49,7 +50,7 @@ export const useUserStore = defineStore({
             query: {}
           })
 
-          // module category entries
+          // setup categories of module, if exists
           this.roles[`${role}_category_ids`] && this.roles[`${role}_category_ids`].map(id => this.modules.push({
             key: `${moduleName}_category`.replace(/(\_\w)/g, (m) => m[1].toUpperCase()),
             name: `${moduleName}_category_${id}`,
