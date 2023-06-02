@@ -22,6 +22,7 @@ export const config = {
         inputType: 'CategoryInput',
         defaultValue: [],
         listTitle: 'modules.point_of_interest.form.headlines.categories',
+        listDescription: 'modules.point_of_interest.form.descriptions.categories',
         listItemComponent: 'field-generic-listitem-category',
         listMaxItems: 3
       },
@@ -40,6 +41,7 @@ export const config = {
           }
         }],
         listTitle: 'modules.point_of_interest.form.headlines.address',
+        listDescription: 'modules.point_of_interest.form.descriptions.address',
         listItemComponent: 'field-generic-listitem-address',
         listMinItems: 1,
         listMaxItems: 1
@@ -49,6 +51,7 @@ export const config = {
         inputType: 'OpeningHourInput',
         defaultValue: [],
         listTitle: 'modules.point_of_interest.form.headlines.openingHours',
+        listDescription: 'modules.point_of_interest.form.descriptions.openingHours',
         listItemComponent: 'field-generic-listitem-opening-hours'
       },
       operatingCompany: {
@@ -72,11 +75,7 @@ export const config = {
             "street": "",
             "zip": "",
             "city": "",
-            "kind": "default",
-            "geoLocation": {
-              "latitude": 0,
-              "longitude": 0
-            }
+            "kind": "default"
           }
         }
       },
@@ -113,6 +112,7 @@ export const config = {
         inputType: 'WebUrlInput',
         defaultValue: [],
         listTitle: 'modules.point_of_interest.form.headlines.webUrls',
+        listDescription: 'modules.point_of_interest.form.descriptions.webUrls',
         listItemComponent: 'field-generic-listitem-web-url'
       },
       priceInformations: {
@@ -120,6 +120,7 @@ export const config = {
         inputType: 'PriceInput',
         defaultValue: [],
         listTitle: 'modules.point_of_interest.form.headlines.priceInformations',
+        listDescription: 'modules.point_of_interest.form.descriptions.priceInformations',
         listItemComponent: 'field-generic-listitem-price-information',
       },
       mediaContents: {
@@ -127,6 +128,7 @@ export const config = {
         inputType: 'MediaContentInput',
         defaultValue: [],
         listTitle: 'modules.point_of_interest.form.headlines.mediaContents',
+        listDescription: 'modules.point_of_interest.form.descriptions.mediaContents',
         listItemComponent: 'field-generic-listitem-media-content'
       }
     }
@@ -159,6 +161,7 @@ export const config = {
         inputType: 'CategoryInput',
         defaultValue: [],
         listTitle: 'modules.news_item.form.headlines.categories',
+        listDescription: 'modules.news_item.form.descriptions.categories',
         listItemComponent: 'field-generic-listitem-category',
         listMaxItems: 3
       },
@@ -177,6 +180,7 @@ export const config = {
           }
         }],
         listTitle: 'modules.news_item.form.headlines.address',
+        listDescription: 'modules.news_item.form.descriptions.address',
         listItemComponent: 'field-generic-listitem-address',
         listMinItems: 1,
         listMaxItems: 1
@@ -189,6 +193,7 @@ export const config = {
           "description": ""
         }],
         listTitle: 'modules.news_item.form.headlines.sourceUrl',
+        listDescription: 'modules.news_item.form.descriptions.sourceUrl',
         listItemComponent: 'field-generic-listitem-web-url',
         listMinItems: 1,
         listMaxItems: 1

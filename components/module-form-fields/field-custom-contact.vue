@@ -3,6 +3,12 @@
     <h3>
       {{ $t('modules.point_of_interest.form.headlines.contact') }}
     </h3>
+    <p
+      v-if="$t('modules.point_of_interest.form.descriptions.contact')"
+      class="mb-8 -mt-2 font-light opacity-50"
+    >
+      {{ $t('modules.point_of_interest.form.descriptions.contact') }}
+    </p>
 
     <div class="flex items-start justify-between gap-4">
       <div class="grid flex-1 grid-cols-12 gap-4">

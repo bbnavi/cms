@@ -5,6 +5,12 @@
         {{ $t(`${options.listTitle}`) }}
       </h3>
     </div>
+    <p
+      v-if="$t(`${options.listDescription}`)"
+      class="mb-8 -mt-2 font-light opacity-50"
+    >
+      {{ $t(`${options.listDescription}`) }}
+    </p>
 
     <div class="space-y-3">
       <component

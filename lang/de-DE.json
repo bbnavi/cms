@@ -85,7 +85,7 @@
             "street": "Straße",
             "addition": "ggf. Adresszusatz",
             "zip": "PLZ",
-            "city": "Stadt"
+            "city": "Ort"
           },
           "contact": {
             "firstName": "Vorname",
@@ -112,6 +112,11 @@
           "categories": "Kategorien",
           "address": "Adresse",
           "sourceUrl": "Quelle"
+        },
+        "descriptions": {
+          "categories": "",
+          "address": "",
+          "sourceUrl": ""
         },
         "labels": {
           "id": "ID",
@@ -146,6 +151,17 @@
           "operatingCompany": "Betreiber",
           "mediaContents": "Dateien"
         },
+        "descriptions": {
+          "categories": "Welcher Kategorie entspricht der Standort?",
+          "address": "",
+          "openingHours": "Optional: Geben Sie hier die Öffnungszeiten an.",
+          "contact": "Bitte geben Sie einen Ansprechpartner für den Standort an.",
+          "openStreetMap": "Optional: Bitte tragen Sie weitere Informtionen zum Standort ein.",
+          "webUrls": "Optional: Geben Sie hier Links an, die mit dem Standort in Verbindung stehen.",
+          "priceInformations": "Optional: Geben Sie hier Preisinformationen an.",
+          "operatingCompany": "",
+          "mediaContents": "Optional: Laden Sie weiteres Material hoch."
+        },
         "labels": {
           "id": "ID",
           "externalId": "Externe ID",
@@ -154,7 +170,7 @@
           "addition": "Ortsbezeichnung",
           "street": "Straße",
           "zip": "PLZ",
-          "city": "Stadt",
+          "city": "Ort",
           "longitude": "Längengrad",
           "latitude": "Breitengrad",
           "openingHours": {
