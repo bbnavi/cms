@@ -8,7 +8,7 @@
       <select
         :readonly="readonly"
         :required="required"
-        class="block px-4 py-2 text-base font-normal border border-gray-200 rounded appearance-none"
+        class="block px-4 py-2 text-base font-normal bg-white border border-gray-200 rounded appearance-none"
         @change="handleInput"
       >
         <option value="" />
