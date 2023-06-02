@@ -11,7 +11,10 @@
         class="block px-4 py-2 text-base font-normal bg-white border border-gray-200 rounded appearance-none"
         @change="handleInput"
       >
-        <option value="" />
+        <option
+          v-if="includeBlank"
+          value=""
+        />
 
         <option
           v-for="option in options"
@@ -55,6 +58,10 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  includeBlank: {
+    type: Boolean,
+    default: true
+  }
 })
 
 const handleInput = (event) => {
