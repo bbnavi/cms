@@ -103,11 +103,12 @@
         />
       </div>
       <div v-if="inputValue.address.geoLocation" class="col-span-6">
-        <form-input-location
-          v-model:latitute="inputValue.address.geoLocation.latitude"
-          v-model:longitude="inputValue.address.geoLocation.longitude"
-          class="w-full aspect-video"
-        />
+        <div class="relative w-full aspect-video">
+          <form-input-location
+            v-model:latitute="inputValue.address.geoLocation.latitude"
+            v-model:longitude="inputValue.address.geoLocation.longitude"
+          />
+        </div>
       </div>
       </div>
     </div>

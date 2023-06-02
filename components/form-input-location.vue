@@ -1,9 +1,10 @@
 <template>
   <l-map
     ref="map"
-    v-model:center="coordinates"
+    v-model:center="mapCenter"
     :zoom="12"
     :options="mapOptions"
+    @click="coordinates = $event.latlng"
   >
     <l-tile-layer
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -22,6 +23,7 @@
 import "leaflet/dist/leaflet.css"
 import { LMap, LTileLayer, LMarker } from "@vue-leaflet/vue-leaflet"
 
+const MAP_CENTER_DEFAULT = [52.391842, 13.063561]
 const emit = defineEmits(['update:latitute', 'update:longitude'])
 
 const props = defineProps({
@@ -39,6 +41,14 @@ const mapOptions = {
   scrollWheelZoom: false,
   touchZoom: false
 }
+
+const mapCenter = computed(() => {
+  if (props.latitute && props.longitude) {
+    return [props.latitute, props.longitude]
+  } else {
+    return MAP_CENTER_DEFAULT
+  }
+})
 
 const coordinates = computed({
   get: () => [props.latitute, props.longitude],
