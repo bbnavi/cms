@@ -80,8 +80,11 @@ if(params.id) {
   entry = data?.value[moduleConfig.graphQL.queryRootEntry] || []
 
   for (const [name, options] of Object.entries(formFields)) {
-    // entry[name] = entry[name] || (options.defaultValue === undefined ? '' : options.defaultValue)
-    entry[name] = entry[name] || options.defaultValue || ''
+    entry[name] = entry[name]
+      ? entry[name]
+      : options.defaultValue === undefined
+        ? ''
+        : JSON.parse(JSON.stringify(options.defaultValue))
   }
 
   entry.forceCreate = false
@@ -90,7 +93,9 @@ if(params.id) {
 
   // create new entry
   for (const [name, options] of Object.entries(formFields)) {
-    entry[name] = options.defaultValue === undefined ? '' : options.defaultValue
+    entry[name] = options.defaultValue === undefined
+      ? ''
+      : JSON.parse(JSON.stringify(options.defaultValue))
   }
 
   entry.forceCreate = true
