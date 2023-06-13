@@ -104,7 +104,7 @@ The folder contains the GraphQL input types for the module. Theses are used in t
 **main-prefix**  
 The main-prefix is used for components which are used for rendering the main layout of the application.
 
-**ui-prefi**  
+**ui-prefix**  
 The ui-prefix is used for reusable components. These components are used in many places in the application.
 
 **module-prefix**  
