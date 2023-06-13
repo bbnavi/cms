@@ -41,6 +41,7 @@
               <li>Setzen Sie per Klick in die Karte eine Standortmarkierung.</li>
               <li>Falls Sie die Eingabe korrigieren wollen, klicken sie an eine neue Position oder löschen Sie die Geo-Koordinaten aus den Eingabefeldern.</li>
               <li>Breitengrad und Längengrad sollte nur Zahlen mit Dezimalpunkt enthalten</li>
+              <li>Es erfolgt kein automatischer Abgleich zwischen der Adresse und den Koordinaten</li>
             </ul>
 
             <form-input-text
