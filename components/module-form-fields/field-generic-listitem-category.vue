@@ -4,7 +4,8 @@
       <form-input-select
         v-model="inputValue"
         :options="selectOptions"
-        :include-blank="false"
+        :include-blank="true"
+        :required="true"
         class="flex-1"
       />
 
@@ -55,13 +56,7 @@ const selectOptions = computed(() => {
 })
 
 const inputValue = computed({
-  get() {
-    if (selectOptions.value.length === 1) {
-      return selectOptions.value[0].value
-    } else {
-      return props.entry?.id || ''
-    }
-  },
+  get() { return props.entry?.id || '' },
   set(value) { emit('update:entry', categories.find(category => category.id === value)) }
 })
 </script>

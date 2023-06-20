@@ -20,7 +20,7 @@ export const config = {
       categories: {
         component: 'field-generic-list',
         inputType: 'CategoryInput',
-        defaultValue: [],
+        defaultValue: [{}],
         listTitle: 'modules.point_of_interest.form.headlines.categories',
         listDescription: 'modules.point_of_interest.form.descriptions.categories',
         listItemComponent: 'field-generic-listitem-category',
