@@ -123,7 +123,12 @@ const submitForm = async () => {
   const { data } = await mutate(mutationPayload)
 
   isLoading.value = false
-  router.push({ name: 'module-index', params: { module: props.moduleName } })
+
+  const routeName = params.category_id ? 'category-index' : 'module-index'
+  const routeParams = params.category_id
+    ? { module: props.moduleName, category_id: params.category_id }
+    : { module: props.moduleName }
+  router.push({ name: routeName, params: routeParams })
 }
 </script>
 
