@@ -16,6 +16,7 @@
           <form-input-text
             v-model="inputValue.name"
             :label="$t('modules.point_of_interest.form.labels.operatingCompany.name')"
+            :required="isRequired"
           />
         </div>
 
@@ -137,5 +138,21 @@ const props = defineProps({
 const inputValue = computed({
   get() { return props.modelValue || props.options?.defaultValue || '' },
   set(value) { emit('update:modelValue', value) }
+})
+
+const isRequired = computed(() => {
+  const data = inputValue.value
+
+  const fieldsToCheck = [
+    ['address', ['addition', 'street', 'zip', 'city']],
+    ['address.geoLocation', ['latitude', 'longitude']],
+    ['contact', ['firstName', 'lastName', 'email', 'phone', 'fax']],
+    ['contact.webUrls', ['url', 'description']]
+  ]
+
+  return fieldsToCheck.some(([path, fields]) => {
+    const object = path.split('.').reduce((obj, key) => obj && obj[key], data);
+    return fields.some(field => !!object && !!object[field]);
+  })
 })
 </script>
