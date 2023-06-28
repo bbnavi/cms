@@ -16,7 +16,6 @@
           <form-input-text
             v-model="inputValue.name"
             :label="$t('modules.point_of_interest.form.labels.operatingCompany.name')"
-            required
           />
         </div>
 
