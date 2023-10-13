@@ -1,10 +1,10 @@
 name: Docker Image CI
-environment: epam-staging
 on:
   push:
     branches: [ epam/* ]
 
 jobs:
+  environment: epam-staging
   prep:
     runs-on: ubuntu-latest
     steps:
