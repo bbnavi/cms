@@ -9,7 +9,6 @@ on:
 jobs:
   prep:
     runs-on: ubuntu-latest
-    environment: staging
     steps:
     - uses: actions/checkout@v2
     - uses: docker/setup-buildx-action@v1
@@ -26,32 +25,30 @@ jobs:
           NUXT_PUBLIC_AUTH_ORIGIN=${{ secrets.NUXT_PUBLIC_AUTH_ORIGIN }}
           NUXT_PUBLIC_AUTH_ENDPOINT=${{ secrets.NUXT_PUBLIC_AUTH_ENDPOINT }}
           NUXT_PUBLIC_USER_ENDPOINT=${{ secrets.NUXT_PUBLIC_USER_ENDPOINT }}
-          NUXT_PUBLIC_DATAHUB_ENDPOINT=${{ secrets.NUXT_PUBLIC_DATAHUB_ENDPOINT }}
           NUXT_PUBLIC_GRAPHQL_ENDPOINT=${{ secrets.NUXT_PUBLIC_GRAPHQL_ENDPOINT }}
           NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT=${{ secrets.NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT }}
         cache-from: |
-          type=registry,ref=ghcr.io/bbnavi/cms:staging
+          type=registry,ref=ghcr.io/bbnavi/cms
         push: true
-        tags: ghcr.io/bbnavi/cms:staging
-  deploy:
-    runs-on: ubuntu-latest
-    environment: staging
-    needs:
-      - prep
-    container: r.planetary-quantum.com/quantum-public/cli:2
-    env:
-      NUXT_PUBLIC_AUTH_SECRET: ${{ secrets.NUXT_PUBLIC_AUTH_SECRET }}
-      NUXT_PUBLIC_AUTH_ORIGIN: ${{ secrets.NUXT_PUBLIC_AUTH_ORIGIN }}
-      NUXT_PUBLIC_AUTH_ENDPOINT: ${{ secrets.NUXT_PUBLIC_AUTH_ENDPOINT }}
-      NUXT_PUBLIC_USER_ENDPOINT: ${{ secrets.NUXT_PUBLIC_USER_ENDPOINT }}
-      NUXT_PUBLIC_DATAHUB_ENDPOINT: ${{ secrets.NUXT_PUBLIC_DATAHUB_ENDPOINT }}
-      NUXT_PUBLIC_GRAPHQL_ENDPOINT: ${{ secrets.NUXT_PUBLIC_GRAPHQL_ENDPOINT }}
-      NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT: ${{ secrets.NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT }}
-      QUANTUM_USER: ${{ secrets.QUANTUM_USER }}
-      QUANTUM_PASSWORD: ${{ secrets.QUANTUM_PASSWORD }}
-      QUANTUM_ENDPOINT: "tpwd-bb-navi"
-      QUANTUM_STACK: "bbnavi-datahub-cms-nuxt-staging"
-    steps:
-      - uses: actions/checkout@v2
-      - name: Deploy to Planetary Quantum
-        run: quantum-cli stacks update --create --wait
+        tags: ghcr.io/bbnavi/cms
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   environment: production
+  #   needs:
+  #     - prep
+  #   container: r.planetary-quantum.com/quantum-public/cli:2
+  #   env:
+  #     NUXT_PUBLIC_AUTH_SECRET: ${{ secrets.NUXT_PUBLIC_AUTH_SECRET }}
+  #     NUXT_PUBLIC_AUTH_ORIGIN: ${{ secrets.NUXT_PUBLIC_AUTH_ORIGIN }}
+  #     NUXT_PUBLIC_AUTH_ENDPOINT: ${{ secrets.NUXT_PUBLIC_AUTH_ENDPOINT }}
+  #     NUXT_PUBLIC_USER_ENDPOINT: ${{ secrets.NUXT_PUBLIC_USER_ENDPOINT }}
+  #     NUXT_PUBLIC_GRAPHQL_ENDPOINT: ${{ secrets.NUXT_PUBLIC_GRAPHQL_ENDPOINT }}
+  #     NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT: ${{ secrets.NUXT_PUBLIC_GRAPHQL_AUTH_ENDPOINT }}
+  #     QUANTUM_USER: ${{ secrets.QUANTUM_USER }}
+  #     QUANTUM_PASSWORD: ${{ secrets.QUANTUM_PASSWORD }}
+  #     QUANTUM_ENDPOINT: "tpwd-bb-navi"
+  #     QUANTUM_STACK: "bbnavi-datahub-cms-nuxt"
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Deploy to Planetary Quantum
+  #       run: quantum-cli stacks update --create --wait
